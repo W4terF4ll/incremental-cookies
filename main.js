@@ -25,7 +25,6 @@ function stop() {
     }
 }
 
-
 start();
 
 function cookieUpdate(number, upgradeCalc) {
