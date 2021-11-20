@@ -48,7 +48,7 @@ function cookieUpdate(number, upgradeCalc) {
 	document.getElementById("cookies").innerHTML = cookies;
 	if (cookies >= 10 && oneBought == false) {
 		document.getElementById("one").innerHTML = "<button id=\"oneButton\" onclick=\"oneAdd()\">Bake an extra cookie! (<span id=\"oneCost\">10</span> Cookies)</button>";
-		oneBought = true;
+		oneButton.removeAttribute("disabled");
 	} else if (oneBought == true) {
 		if (cookies >= oneCost) {
 			oneButton.removeAttribute("disabled");
@@ -58,9 +58,9 @@ function cookieUpdate(number, upgradeCalc) {
 	}
 	if (cookies >= 500 && ovenBought == false) {
 		document.getElementById("oven").innerHTML = "<button id=\"ovenButton\" onclick=\"ovenAdd()\">Buy new ovens to double cookie output! (<span id=\"ovenCost\">500</span> Cookies)</button>";
-		ovenBought = true;
+		ovenButton.removeAttribute("disabled");
 	} else if (ovenBought == true) {
-		if (cookies >= ovenCost) {
+		if (cookies >= ovenCostNext) {
 			ovenButton.removeAttribute("disabled");
 		} else {
 			ovenButton.setAttribute("disabled", "disabled");
@@ -75,6 +75,7 @@ function cookieUpdate(number, upgradeCalc) {
 
 function oneAdd() {
 	oneCost = Math.floor(10 * Math.pow(1.1,oneCount));
+	oneBought = true;
 	if (cookies >= oneCost) {
 		upgrade += 1;
 		cookieUpdate(-(oneCost), false);
@@ -86,6 +87,7 @@ function oneAdd() {
 
 function ovenAdd() {
 	ovenCost = Math.floor(ovenCost * Math.pow(1.5,ovenCount));
+	ovenBought = true;
 	if (cookies >= oneCost) {
 		multi *= 2;
 		cookieUpdate(-(ovenCost), false);
