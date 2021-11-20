@@ -50,7 +50,7 @@ function cookieUpdate(number, upgradeCalc) {
 		document.getElementById("one").innerHTML = "<button id=\"oneButton\" onclick=\"oneAdd()\">Bake an extra cookie! (<span id=\"oneCost\">10</span> Cookies)</button>";
 		oneButton.removeAttribute("disabled");
 	} else if (oneBought == true) {
-		if (cookies >= oneCost) {
+		if (cookies >= oneCostNext) {
 			oneButton.removeAttribute("disabled");
 		} else {
 			oneButton.setAttribute("disabled", "disabled");
