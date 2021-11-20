@@ -20,7 +20,7 @@ function start() {
 
 function stop() {
     if(timerID != -1){
-		clearInterval(timerID)
+	clearInterval(timerID)
         timerID = -1
     }
 }
