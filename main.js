@@ -7,6 +7,7 @@ var oneCostNext = 11;
 var timeElapsed = 0;
 var timerID = -1;
 
+//github is dum
 function tick() {
     timeElapsed++
     document.getElementById("time").innerHTML = timeElapsed;
