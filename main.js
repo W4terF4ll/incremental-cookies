@@ -4,6 +4,29 @@ var oneCost = 10;
 var oneCount = 0;
 var oneBought = false;
 var oneCostNext = 11;
+var timeElapsed = 0;
+var timerID = -1;
+
+function tick() {
+    timeElapsed++
+    document.getElementById("time").innerHTML = timeElapsed;
+}
+
+function start() {
+    if(timerID == -1){
+        timerID = setInterval(tick, 1000);
+    }
+}
+
+function stop() {
+    if(timerID != -1){
+		clearInterval(timerID)
+        timerID = -1
+    }
+}
+
+
+start();
 
 function cookieUpdate(number, upgradeCalc) {
 	if (upgradeCalc == true) {
@@ -21,6 +44,11 @@ function cookieUpdate(number, upgradeCalc) {
 		} else {
 			oneButton.setAttribute("disabled", "disabled");
 		}
+	}
+	if (cookies >= 10000) {
+		stop();
+		document.getElementById("timer").innerHTML = "Congratulations! Your Time: <span id=\"time\">0</span>s";
+		document.getElementById("time").innerHTML = timeElapsed;
 	}
 }
 
