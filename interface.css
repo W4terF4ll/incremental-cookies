@@ -7,3 +7,6 @@
 	transform: translateX(-50%) translateY(-50%);
 	font-family: "Lucida Console", "Courier New", monospace;
 }
+.cookies {
+	color: blue;
+}
