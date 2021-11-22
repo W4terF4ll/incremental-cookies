@@ -68,7 +68,7 @@ function cookieUpdate(number, upgradeCalc) {
 	}
 	if (cookies >= 10000) {
 		stop();
-		document.getElementById("timer").innerHTML = "Congratulations! Your Time: <span id=\"time\">0</span>s";
+		document.getElementById("timer").innerHTML = "Congratulations! Your Time: <span class=\"time\" id=\"time\">0</span><span class=\"time\">s</span>";
 		document.getElementById("time").innerHTML = timeElapsed;
 	}
 }
