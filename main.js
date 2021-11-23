@@ -57,7 +57,7 @@ function cookieUpdate(number, upgradeCalc) {
 		}
 	}
 	if (cookies >= 500 && ovenBought == false) {
-		document.getElementById("oven").innerHTML = "<button id=\"ovenButton\" onclick=\"ovenAdd()\">Buy new ovens to double cookie output! (<span id=\"ovenCost\">500</span> Cookies)</button>";
+		document.getElementById("oven").innerHTML = "<button id=\"ovenButton\" onclick=\"ovenAdd()\">Buy new ovens! (<span id=\"ovenCost\">500</span> Cookies)</button>";
 		ovenButton.removeAttribute("disabled");
 	} else if (ovenBought == true) {
 		if (cookies >= ovenCostNext) {
@@ -78,7 +78,9 @@ function oneAdd() {
 	oneBought = true;
 	if (cookies >= oneCost) {
 		upgrade += 1;
+		textUpdater();
 		cookieUpdate(-(oneCost), false);
+		document.getElementById("bakeCount").innerHTML = (upgrade + 1) * multi;
 		oneCount += 1;
 		oneCostNext = Math.floor(10 * Math.pow(1.1,oneCount));
 		document.getElementById("oneCost").innerHTML = oneCostNext;
@@ -90,9 +92,20 @@ function ovenAdd() {
 	ovenBought = true;
 	if (cookies >= oneCost) {
 		multi *= 2;
+		textUpdater();
 		cookieUpdate(-(ovenCost), false);
+		document.getElementById("bakeCount").innerHTML = (upgrade + 1) * multi;
 		ovenCount += 1;
 		ovenCostNext = Math.floor(ovenCost * Math.pow(1.5,ovenCount));
 		document.getElementById("ovenCost").innerHTML = ovenCostNext;
+	}
+}
+
+function textUpdater() {
+	document.getElementById("bakeCount").innerHTML = (upgrade + 1) * multi;
+	if ((upgrade + 1) * multi > 1) {
+		document.getElementById("cookieText").innerHTML = "Cookies!";
+	} else {
+		document.getElementById("cookieText").innerHTML = "Cookie!";
 	}
 }
