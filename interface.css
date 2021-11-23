@@ -20,11 +20,11 @@ button {
 	font-size: 16px;
 	padding: 10px 24px;
 	border: 2px solid #6B6A6A;
-	color: #c7c7c7;
-	background-color: grey;
+	color: #a3a3a3;
+	background-color: white;
 	transition-duration: 0.3s;
 }
 button:hover {
-	color: #a3a3a3;
-	background-color: white;
+	color: #c7c7c7;
+	background-color: grey;
 }
