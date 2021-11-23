@@ -20,15 +20,14 @@ button {
 	font-size: 16px;
 	padding: 10px 24px;
 	border: 2px solid #6B6A6A;
-	color: #a3a3a3;
+	color: #6B6A6A;
 	background-color: white;
 	transition-duration: 0.3s;
 }
 button:hover {
+	background-color: #cfcfcf;
+}
+button:disabled {
 	color: #c7c7c7;
 	background-color: grey;
-}
-button:disable {
-	background-color: #212121;
-	color: #545454;
 }
