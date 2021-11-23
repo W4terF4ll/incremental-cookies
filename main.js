@@ -2,6 +2,7 @@
 var cookies = 0;
 var upgrade = 0;
 var multi = 1;
+var bestCookies = 0;
 
 //time values
 var timeElapsed = 0;
@@ -10,12 +11,14 @@ var timerID = -1;
 //upgrade one values
 var oneBought = false;
 var oneCount = 0;
+var oneFirst = 10;
 var oneCost = 10;
 var oneCostNext = 11;
 
 //oven values
 var ovenBought = false;
 var ovenCount = 0;
+var ovenFirst = 500;
 var ovenCost = 500;
 var ovenCostNext = 750;
 
@@ -43,8 +46,12 @@ function cookieUpdate(number, upgradeCalc) {
 	if (upgradeCalc == true) {
 		cookies = cookies + ((number + upgrade) * multi);
 	} else {
-		cookies = cookies + number
+		cookies = cookies + number;
 	}
+	if (cookies > bestCookies) {
+		bestCookies = cookies;
+	}
+	textUpdater();
 	document.getElementById("cookies").innerHTML = cookies;
 	if (cookies >= 10 && oneBought == false) {
 		document.getElementById("one").innerHTML = "<button id=\"oneButton\" onclick=\"oneAdd()\">Bake an extra cookie! (<span id=\"oneCost\">10</span> Cookies)</button>";
@@ -66,7 +73,7 @@ function cookieUpdate(number, upgradeCalc) {
 			ovenButton.setAttribute("disabled", "disabled");
 		}
 	}
-	if (cookies >= 10000) {
+	if (cookies >= 100000) {
 		stop();
 		document.getElementById("timer").innerHTML = "Congratulations! Your Time: <span class=\"time\" id=\"time\">0</span><span class=\"time\">s</span>";
 		document.getElementById("time").innerHTML = timeElapsed;
@@ -103,6 +110,22 @@ function ovenAdd() {
 
 function textUpdater() {
 	document.getElementById("bakeCount").innerHTML = (upgrade + 1) * multi;
+	switch (true) {
+		case (bestCookies < oneFirst):
+			document.getElementById("nextUpgrade").innerHTML = oneCost;
+			break;
+		case (bestCookies < ovenFirst):
+			document.getElementById("nextUpgrade").innerHTML = ovenCost;
+			break;
+		case (bestCookies < 10000):
+			document.getElementById("nextUpgrade").innerHTML = 10000;
+			break;
+		case (bestCookies < 100000):
+			document.getElementById("nextUpgrade").innerHTML = 100000;
+			break;
+		default:
+			document.getElementById("nextText").innerHTML = "Game Complete! (for now...)";
+	}
 	if ((upgrade + 1) * multi > 1) {
 		document.getElementById("cookieText").innerHTML = "Cookies!";
 	} else {
