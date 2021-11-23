@@ -3,16 +3,19 @@
 		<link rel="stylesheet" type="text/css" href="interface.css" />
 	</head>
 	<body>
-		<div class="everything">
+		<div class="main">
 			<p id="timer">Time Elapsed: <span class="time" id="time">0</span><span class="time">s</span></p>
 			<p>You have <span class="cookies" id="cookies">0</span> cookies!</p>
 			<button onClick="cookieUpdate(1, true)">Bake <span id="bakeCount">a</span> <span id="cookieText">Cookie!</span></button>
 			<br></br>
 			<br></br>
-			<p>-- UPGRADES --</p>
+			<p class="upgradeText">-- UPGRADES --</p>
+			<p class="next" id="nextText">Next Unlock at: <span id="nextUpgrade">10</span> Cookies</p>
 			<span id="one"></span>
 			<br></br>
 			<span id="oven"></span>
+		</div>
+		<div class="bakery">
 		</div>
 		<script type="text/javascript" src="main.js"></script>
 	</body>
