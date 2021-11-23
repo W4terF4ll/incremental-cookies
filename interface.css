@@ -1,4 +1,4 @@
-.everything {
+.main {
 	position: absolute;
 	text-align: center;
 	top: 50%;
@@ -10,9 +10,20 @@
 }
 .cookies {
 	color: blue;
+	font-size: 26px;
 }
 .time {
 	color: red;
+	font-size: 26px;
+}
+.next {
+	font-size: 10px;
+	color: #6B6A6A;
+	margin-bottom:20px;
+}
+.upgradeText {
+	font-size: 26px;
+	margin-bottom:0;
 }
 button {
 	font-family: "Lucida Console", "Courier New", monospace;
