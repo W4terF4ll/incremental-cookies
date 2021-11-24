@@ -78,7 +78,7 @@ function cookieUpdate(number, upgradeCalc) {
 		}
 	}
 	if (cookies >= 10000 && bakeryBought == false) {
-		document.getElementById("bakery").innerHTML = "<button id=\"bakeryButton\" onclick=\"bakeryBought()\">Construct a bakery! (<span id=\"bakeryCost\">10000</span> Cookies)</button>";
+		document.getElementById("bakery").innerHTML = "<button id=\"bakeryButton\" onclick=\"bakeryAdd()\">Construct a bakery! (<span id=\"bakeryCost\">10000</span> Cookies)</button>";
 	}
 	if (cookies >= 100000) {
 		stop();
