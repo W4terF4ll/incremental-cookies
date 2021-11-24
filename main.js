@@ -22,6 +22,10 @@ var ovenFirst = 500;
 var ovenCost = 500;
 var ovenCostNext = 750;
 
+//bakery values
+var bakeryBought = false;
+var bakeryCost = 10000
+
 function tick() {
     timeElapsed++
     document.getElementById("time").innerHTML = timeElapsed;
@@ -73,6 +77,9 @@ function cookieUpdate(number, upgradeCalc) {
 			ovenButton.setAttribute("disabled", "disabled");
 		}
 	}
+	if (cookies >= 10000 && bakeryBought == false) {
+		document.getElementById("bakery").innerHTML = "<button id=\"bakeryButton\" onclick=\"bakeryBought()\">Construct a bakery! (<span id=\"bakeryCost\">10000</span> Cookies)</button>";
+	}
 	if (cookies >= 100000) {
 		stop();
 		document.getElementById("timer").innerHTML = "Congratulations! Your Time: <span class=\"time\" id=\"time\">0</span><span class=\"time\">s</span>";
@@ -106,6 +113,9 @@ function ovenAdd() {
 		ovenCostNext = Math.floor(ovenCost * Math.pow(1.5,ovenCount));
 		document.getElementById("ovenCost").innerHTML = ovenCostNext;
 	}
+}
+
+function bakeryManage() {
 }
 
 function textUpdater() {
