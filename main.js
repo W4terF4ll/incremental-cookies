@@ -115,7 +115,7 @@ function ovenAdd() {
 	}
 }
 
-function bakeryManage() {
+function bakeryBought() {
 }
 
 function textUpdater() {
