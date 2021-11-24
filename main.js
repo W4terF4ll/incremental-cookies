@@ -115,9 +115,10 @@ function ovenAdd() {
 	}
 }
 
-function bakeryBought() {
+function bakeryAdd() {
 	updateCookies(-(bakeryCost), false);
 	element.remove(bakeryButton);
+	bakeryBought = true;
 }
 
 function textUpdater() {
