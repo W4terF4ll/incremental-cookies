@@ -22,6 +22,9 @@
 	padding: 32px 32px;
 	margin-bottom: 10px;
 }
+.bakeryLit {
+	background-color: #abfeff;
+}
 .cookies {
 	color: blue;
 	font-size: 26px;
