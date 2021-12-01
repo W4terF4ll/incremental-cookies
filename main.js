@@ -147,8 +147,8 @@ function textUpdater() {
 			document.getElementById("nextText").innerHTML = "Game Complete! (for now...)";
 	}
 	if ((upgrade + 1) * multi > 1) {
-		document.getElementById("cookieText").innerHTML = "Cookies!";
+		document.getElementById("cookieText").innerHTML = "Cookies per Second!";
 	} else {
-		document.getElementById("cookieText").innerHTML = "Cookie!";
+		document.getElementById("cookieText").innerHTML = "Cookie per Second!";
 	}
 }
