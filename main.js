@@ -84,8 +84,6 @@ function cookieUpdate(number, upgradeCalc) {
 		bakeryUnlocked = true;
 	} else if (cookies >= bakeryCost && bakeryUnlocked == true) {
 		bakeryButton.removeAttribute("disabled");
-	} else if (bakeryUnlocked == true){
-		bakeryButton.setAttribute("disabled", "disabled");
 	}
 	textUpdater();
 }
