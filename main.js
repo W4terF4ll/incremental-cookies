@@ -123,6 +123,8 @@ function ovenAdd() {
 function bakeryAdd() {
 	cookieUpdate(-(bakeryCost), false);
 	bakeryBought = true;
+	document.getElementById("bakeryText").innerHTML = "<p class=\"bakeryText\">-- BAKERY --</p>
+	document.getElementById("bakeryMultiDisplay").innerHTML = "<p class=\"bakeryMultiText\">Your Current Multiplier - <span id=\"bakeryMultiText\">0</span></p>
 	document.getElementById("bakeryTopLeft").innerHTML = "<button id=\"bakeryManager1\" class=\"bakeryStyle\" onclick=\"bakeryUnlight(1)\"></button>";
 	document.getElementById("bakeryTopMid").innerHTML = "<button id=\"bakeryManager2\" class=\"bakeryStyle\" onclick=\"bakeryUnlight(2)\"></button>";
 	document.getElementById("bakeryTopRight").innerHTML = "<button id=\"bakeryManager3\" class=\"bakeryStyle\" onclick=\"bakeryUnlight(3)\"></button>";
@@ -156,6 +158,9 @@ function bakeryUnlight(num) {
 //display text updater
 function textUpdater() {
 	document.getElementById("cookies").innerHTML = cookies;
+	if (bakeryBought == true) {
+		document.getElementById("bakeryMultiText").innerHTML = bakeryMulti;
+	}
 	document.getElementById("bakeCount").innerHTML = (upgrade + 1) * (multi + bakeryMulti);
 	switch (true) {
 		case (bestCookies < oneFirst):
@@ -173,7 +178,7 @@ function textUpdater() {
 		default:
 			document.getElementById("nextText").innerHTML = "Game Complete! (for now...)";
 	}
-	if ((upgrade + 1) * multi > 1) {
+	if ((upgrade + 1) * (multi + bakeryMulti) > 1) {
 		document.getElementById("cookieText").innerHTML = "Cookies per Second!";
 	} else {
 		document.getElementById("cookieText").innerHTML = "Cookie per Second!";
