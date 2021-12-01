@@ -87,11 +87,6 @@ function cookieUpdate(number, upgradeCalc) {
 	} else if (bakeryUnlocked == true){
 		bakeryButton.setAttribute("disabled", "disabled");
 	}
-	if (cookies >= 100000) {
-		stop();
-		document.getElementById("timer").innerHTML = "Congratulations! Your Time: <span class=\"time\" id=\"time\">0</span><span class=\"time\">s</span>";
-		document.getElementById("time").innerHTML = timeElapsed;
-	}
 	textUpdater();
 }
 
