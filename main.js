@@ -133,7 +133,7 @@ function bakeryAdd() {
 
 //bakery button lighter
 function bakeryLight() {
-	var randomLight = (int) (1 + Math.random() * 9);
+	var randomLight = Math.round(1 + Math.random() * 9)
 	document.getElementById("bakeryManager" + randomLight).setAttribute("class", "bakeryLit");
 }
 
