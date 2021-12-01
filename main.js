@@ -33,7 +33,7 @@ function tick() {
 	timeElapsed++
 	document.getElementById("time").innerHTML = timeElapsed;
 	cookieUpdate(1, true);
-	if (timeElapsed % 5 == 0 && bakeryUnlocked == true && buttonLit == false) {
+	if (bakeryUnlocked == true && timeElapsed % 5 == 0 && buttonLit == false) {
 		bakeryLight();
 	}
 
@@ -121,15 +121,15 @@ function ovenAdd() {
 //bakery feature unlock
 function bakeryAdd() {
 	cookieUpdate(-(bakeryCost), false);
-	document.getElementById("bakeryTopLeft").innerHTML = "<button id=\"bakeryManager1\" class=\"bakeryStyle\" onclick=\"cookieUpdate(1, false)\"></button>";
-	document.getElementById("bakeryTopMid").innerHTML = "<button id=\"bakeryManager2\" class=\"bakeryStyle\" onclick=\"cookieUpdate(1, false)\"></button>";
-	document.getElementById("bakeryTopRight").innerHTML = "<button id=\"bakeryManager3\" class=\"bakeryStyle\" onclick=\"cookieUpdate(1, false)\"></button>";
-	document.getElementById("bakeryMidLeft").innerHTML = "<button id=\"bakeryManager4\" class=\"bakeryStyle\" onclick=\"cookieUpdate(1, false)\"></button>";
-	document.getElementById("bakeryMidMid").innerHTML = "<button id=\"bakeryManager5\" class=\"bakeryStyle\" onclick=\"cookieUpdate(1, false)\"></button>";
-	document.getElementById("bakeryMidRight").innerHTML = "<button id=\"bakeryManager6\" class=\"bakeryStyle\" onclick=\"cookieUpdate(1, false)\"></button>";
-	document.getElementById("bakeryBotLeft").innerHTML = "<button id=\"bakeryManager7\" class=\"bakeryStyle\" onclick=\"cookieUpdate(1, false)\"></button>";
-	document.getElementById("bakeryBotMid").innerHTML = "<button id=\"bakeryManager8\" class=\"bakeryStyle\" onclick=\"cookieUpdate(1, false)\"></button>";
-	document.getElementById("bakeryBotRight").innerHTML = "<button id=\"bakeryManager9\" class=\"bakeryStyle\" onclick=\"cookieUpdate(1, false)\"></button>";
+	document.getElementById("bakeryTopLeft").innerHTML = "<button id=\"bakeryManager1\" class=\"bakeryStyle\" onclick=\"bakeryUnlight(1)\"></button>";
+	document.getElementById("bakeryTopMid").innerHTML = "<button id=\"bakeryManager2\" class=\"bakeryStyle\" onclick=\"bakeryUnlight(2)\"></button>";
+	document.getElementById("bakeryTopRight").innerHTML = "<button id=\"bakeryManager3\" class=\"bakeryStyle\" onclick=\"bakeryUnlight(3)\"></button>";
+	document.getElementById("bakeryMidLeft").innerHTML = "<button id=\"bakeryManager4\" class=\"bakeryStyle\" onclick=\"bakeryUnlight(4)\"></button>";
+	document.getElementById("bakeryMidMid").innerHTML = "<button id=\"bakeryManager5\" class=\"bakeryStyle\" onclick=\"bakeryUnlight(5)\"></button>";
+	document.getElementById("bakeryMidRight").innerHTML = "<button id=\"bakeryManager6\" class=\"bakeryStyle\" onclick=\"bakeryUnlight(6)\"></button>";
+	document.getElementById("bakeryBotLeft").innerHTML = "<button id=\"bakeryManager7\" class=\"bakeryStyle\" onclick=\"bakeryUnlight(7)\"></button>";
+	document.getElementById("bakeryBotMid").innerHTML = "<button id=\"bakeryManager8\" class=\"bakeryStyle\" onclick=\"bakeryUnlight(8)\"></button>";
+	document.getElementById("bakeryBotRight").innerHTML = "<button id=\"bakeryManager9\" class=\"bakeryStyle\" onclick=\"bakeryUnlight(9)\"></button>";
 	bakeryButton.remove();	
 }
 
