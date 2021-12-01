@@ -22,6 +22,7 @@ var ovenCost = ovenFirst + Math.floor(ovenCount * ovenFirst * Math.pow(3,ovenCou
 
 //bakery values
 var bakeryUnlocked = false;
+var bakeryBought = false;
 var bakeryFirst = 5000;
 var bakeryCost = 5000;
 var buttonLit = false;
@@ -33,7 +34,7 @@ function tick() {
 	timeElapsed++
 	document.getElementById("time").innerHTML = timeElapsed;
 	cookieUpdate(1, true);
-	if (bakeryUnlocked == true && timeElapsed % 5 == 0 && buttonLit == false) {
+	if (bakeryBought == true && timeElapsed % 5 == 0 && buttonLit == false) {
 		bakeryLight();
 	}
 
@@ -121,6 +122,7 @@ function ovenAdd() {
 //bakery feature unlock
 function bakeryAdd() {
 	cookieUpdate(-(bakeryCost), false);
+	bakeryBought = true;
 	document.getElementById("bakeryTopLeft").innerHTML = "<button id=\"bakeryManager1\" class=\"bakeryStyle\" onclick=\"bakeryUnlight(1)\"></button>";
 	document.getElementById("bakeryTopMid").innerHTML = "<button id=\"bakeryManager2\" class=\"bakeryStyle\" onclick=\"bakeryUnlight(2)\"></button>";
 	document.getElementById("bakeryTopRight").innerHTML = "<button id=\"bakeryManager3\" class=\"bakeryStyle\" onclick=\"bakeryUnlight(3)\"></button>";
@@ -148,6 +150,7 @@ function bakeryUnlight(num) {
 	} else {
 		bakeryMulti = 0;
 	}
+	textUpdater();
 }
 
 //display text updater
