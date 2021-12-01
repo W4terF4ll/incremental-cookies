@@ -8,6 +8,16 @@
 	transform: translateX(-50%) translateY(-50%);
 	font-family: "Lucida Console", "Courier New", monospace;
 }
+.bakery {
+	position: absolute;
+	text-align: center;
+	top: 50%;
+	left: 25%;
+	-moz-transform: translateX(-25%) translateY(-50%);
+	-webkit-transform: translateX(-25%) translateY(-50%);
+	transform: translateX(-25%) translateY(-50%);
+	font-family: "Lucida Console", "Courier New", monospace;
+}
 .cookies {
 	color: blue;
 	font-size: 26px;
