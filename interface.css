@@ -18,6 +18,9 @@
 	transform: translateX(-15%) translateY(-50%);
 	font-family: "Lucida Console", "Courier New", monospace;
 }
+.bakeryStyle {
+	padding: 64px 64px;
+}
 .cookies {
 	color: blue;
 	font-size: 26px;
