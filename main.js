@@ -25,6 +25,8 @@ var bakeryUnlocked = false;
 var bakeryFirst = 5000;
 var bakeryCost = 5000;
 var buttonLit = false;
+var randomLight = 0;
+var bakeryMulti = 0;
 
 //time functions
 function tick() {
@@ -131,11 +133,21 @@ function bakeryAdd() {
 	bakeryButton.remove();	
 }
 
-//bakery button lighter
+//bakery button lighter and unlighter
 function bakeryLight() {
-	var randomLight = Math.round(1 + Math.random() * 9)
+	randomLight = Math.round(1 + Math.random() * 9)
 	document.getElementById("bakeryManager" + randomLight).setAttribute("class", "bakeryLit");
 	buttonLit = true;
+}
+
+function bakeryUnlight(num) {
+	if (buttonLit == true && num == randomLight) {
+		document.getElementById("bakeryManager" + randomLight).setAttribute("class", "bakeryStyle");
+		bakeryMulti += 1;
+		buttonlit = false;
+	} else {
+		bakeryMulti = 0;
+	}
 }
 
 //display text updater
