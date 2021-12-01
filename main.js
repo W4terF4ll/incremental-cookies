@@ -135,6 +135,7 @@ function bakeryAdd() {
 function bakeryLight() {
 	var randomLight = Math.round(1 + Math.random() * 9)
 	document.getElementById("bakeryManager" + randomLight).setAttribute("class", "bakeryLit");
+	buttonLit = true;
 }
 
 //display text updater
