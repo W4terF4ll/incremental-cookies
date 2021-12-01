@@ -60,7 +60,7 @@ function cookieUpdate(number, upgradeCalc) {
 
 	//calculating the new cookies and updating the text
 	if (upgradeCalc == true) {
-		cookies = cookies + ((number + upgrade) * multi);
+		cookies = cookies + ((number + upgrade) * (multi + bakeryMulti));
 	} else {
 		cookies = cookies + number;
 	}
@@ -99,7 +99,7 @@ function oneAdd() {
 	upgrade += 1;
 	textUpdater();
 	var oneTemp = oneCost;
-	document.getElementById("bakeCount").innerHTML = (upgrade + 1) * multi;
+	document.getElementById("bakeCount").innerHTML = (upgrade + 1) * (multi + bakeryMulti);
 	oneCount += 1;
 	oneCost = oneFirst + Math.floor(oneCount * Math.pow(1.1,oneCount));
 	document.getElementById("oneCost").innerHTML = oneCost;
@@ -144,7 +144,7 @@ function bakeryUnlight(num) {
 	if (buttonLit == true && num == randomLight) {
 		document.getElementById("bakeryManager" + randomLight).setAttribute("class", "bakeryStyle");
 		bakeryMulti += 1;
-		buttonlit = false;
+		buttonLit = false;
 	} else {
 		bakeryMulti = 0;
 	}
@@ -153,7 +153,7 @@ function bakeryUnlight(num) {
 //display text updater
 function textUpdater() {
 	document.getElementById("cookies").innerHTML = cookies;
-	document.getElementById("bakeCount").innerHTML = (upgrade + 1) * multi;
+	document.getElementById("bakeCount").innerHTML = (upgrade + 1) * (multi + bakeryMulti);
 	switch (true) {
 		case (bestCookies < oneFirst):
 			document.getElementById("nextUpgrade").innerHTML = oneCost;
