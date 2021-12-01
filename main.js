@@ -31,7 +31,7 @@ function tick() {
 	timeElapsed++
 	document.getElementById("time").innerHTML = timeElapsed;
 	cookieUpdate(1, true);
-	if (timeElapsed % 5 == 0 && bakeryBought == true && buttonLit == false) {
+	if (timeElapsed % 5 == 0 && bakeryUnlocked == true && buttonLit == false) {
 		bakeryLight();
 	}
 
