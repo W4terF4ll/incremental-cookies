@@ -27,21 +27,23 @@ var bakeryCost = 10000
 
 //time functions
 function tick() {
-    timeElapsed++
-    document.getElementById("time").innerHTML = timeElapsed;
+	timeElapsed++
+	document.getElementById("time").innerHTML = timeElapsed;
+	cookieUpdate(1, true);
+
 }
 
 function start() {
-    if(timerID == -1){
-        timerID = setInterval(tick, 1000);
-    }
+	if(timerID == -1){
+		timerID = setInterval(tick, 1000);
+	}
 }
 
 function stop() {
-    if(timerID != -1){
+	if(timerID != -1){
 		clearInterval(timerID)
-        timerID = -1
-    }
+		timerID = -1
+	}
 }
 
 //starting the timer
