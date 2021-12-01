@@ -22,7 +22,7 @@ var ovenCost = ovenFirst + Math.floor(ovenCount * ovenFirst * Math.pow(3,ovenCou
 
 //bakery values
 var bakeryUnlocked = false;
-var bakeryFirst = 2000
+var bakeryFirst = 5000
 var bakeryCost = 5000
 
 //time functions
