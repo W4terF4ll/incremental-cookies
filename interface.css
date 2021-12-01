@@ -12,10 +12,10 @@
 	position: absolute;
 	text-align: center;
 	top: 50%;
-	left: 25%;
-	-moz-transform: translateX(-25%) translateY(-50%);
-	-webkit-transform: translateX(-25%) translateY(-50%);
-	transform: translateX(-25%) translateY(-50%);
+	left: 15%;
+	-moz-transform: translateX(-15%) translateY(-50%);
+	-webkit-transform: translateX(-15%) translateY(-50%);
+	transform: translateX(-15%) translateY(-50%);
 	font-family: "Lucida Console", "Courier New", monospace;
 }
 .cookies {
