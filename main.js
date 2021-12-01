@@ -11,19 +11,19 @@ var timerID = -1;
 //one more values
 var oneUnlocked = false;
 var oneCount = 0;
-var oneFirst = 10;
+var oneFirst = 5;
 var oneCost = oneFirst + Math.floor(oneCount * Math.pow(1.1,oneCount));
 
 //oven values
 var ovenUnlocked = false;
 var ovenCount = 0;
-var ovenFirst = 500;
+var ovenFirst = 100;
 var ovenCost = ovenFirst + Math.floor(ovenCount * ovenFirst * Math.pow(3,ovenCount));
 
 //bakery values
 var bakeryUnlocked = false;
-var bakeryFirst = 10000
-var bakeryCost = 10000
+var bakeryFirst = 2000
+var bakeryCost = 5000
 
 //time functions
 function tick() {
@@ -61,11 +61,10 @@ function cookieUpdate(number, upgradeCalc) {
 	if (cookies > bestCookies) {
 		bestCookies = cookies;
 	}
-	textUpdater();
 	
 	//detecting if the new cookie amount unlocks anything or allows anything to be purchased
 	if (bestCookies >= oneFirst && oneUnlocked == false) {
-		document.getElementById("one").innerHTML = "<button id=\"oneButton\" onclick=\"oneAdd()\">Bake an extra cookie! (<span id=\"oneCost\">10</span> Cookies)</button>";
+		document.getElementById("one").innerHTML = "<button id=\"oneButton\" onclick=\"oneAdd()\">Bake an extra cookie! (<span id=\"oneCost\"></span> Cookies)</button>";
 		oneUnlocked = true;
 	} else if (cookies >= oneCost && oneUnlocked == true) {
 		oneButton.removeAttribute("disabled");
@@ -73,7 +72,7 @@ function cookieUpdate(number, upgradeCalc) {
 		oneButton.setAttribute("disabled", "disabled");
 	}
 	if (bestCookies >= ovenFirst && ovenUnlocked == false) {
-		document.getElementById("oven").innerHTML = "<button id=\"ovenButton\" onclick=\"ovenAdd()\">Buy new ovens! (<span id=\"ovenCost\">500</span> Cookies)</button>";
+		document.getElementById("oven").innerHTML = "<button id=\"ovenButton\" onclick=\"ovenAdd()\">Buy new ovens! (<span id=\"ovenCost\"></span> Cookies)</button>";
 		ovenUnlocked = true;
 	} else if (cookies >= ovenCost && ovenUnlocked == true) {
 		ovenButton.removeAttribute("disabled");
@@ -81,7 +80,7 @@ function cookieUpdate(number, upgradeCalc) {
 		ovenButton.setAttribute("disabled", "disabled");
 	}
 	if (bestCookies >= bakeryFirst && bakeryUnlocked == false) {
-		document.getElementById("bakery").innerHTML = "<button id=\"bakeryButton\" onclick=\"bakeryAdd()\">Construct a bakery! (<span id=\"bakeryCost\">10000</span> Cookies)</button>";
+		document.getElementById("bakery").innerHTML = "<button id=\"bakeryButton\" onclick=\"bakeryAdd()\">Construct a bakery! (<span id=\"bakeryCost\"></span> Cookies)</button>";
 		bakeryUnlocked = true;
 	} else if (cookies >= bakeryCost && bakeryUnlocked == true) {
 		bakeryButton.removeAttribute("disabled");
@@ -93,6 +92,7 @@ function cookieUpdate(number, upgradeCalc) {
 		document.getElementById("timer").innerHTML = "Congratulations! Your Time: <span class=\"time\" id=\"time\">0</span><span class=\"time\">s</span>";
 		document.getElementById("time").innerHTML = timeElapsed;
 	}
+	textUpdater();
 }
 
 //extra cookie upgrade
