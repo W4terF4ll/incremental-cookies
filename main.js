@@ -117,6 +117,15 @@ function ovenAdd() {
 //bakery feature unlock
 function bakeryAdd() {
 	cookieUpdate(-(bakeryCost), false);
+	document.getElementById("bakeryTopLeft").innerHTML = "<button id=\"bakeryManager\" onclick=\"cookieUpdate(1, false)\"></button>";
+	document.getElementById("bakeryTopMid").innerHTML = "<button id=\"bakeryManager\" onclick=\"cookieUpdate(1, false)\"></button>";
+	document.getElementById("bakeryTopRight").innerHTML = "<button id=\"bakeryManager\" onclick=\"cookieUpdate(1, false)\"></button>";
+	document.getElementById("bakeryMidLeft").innerHTML = "<button id=\"bakeryManager\" onclick=\"cookieUpdate(1, false)\"></button>";
+	document.getElementById("bakeryMidMid").innerHTML = "<button id=\"bakeryManager\" onclick=\"cookieUpdate(1, false)\"></button>";
+	document.getElementById("bakeryMidRight").innerHTML = "<button id=\"bakeryManager\" onclick=\"cookieUpdate(1, false)\"></button>";
+	document.getElementById("bakeryBotLeft").innerHTML = "<button id=\"bakeryManager\" onclick=\"cookieUpdate(1, false)\"></button>";
+	document.getElementById("bakeryBotMid").innerHTML = "<button id=\"bakeryManager\" onclick=\"cookieUpdate(1, false)\"></button>";
+	document.getElementById("bakeryBotRight").innerHTML = "<button id=\"bakeryManager\" onclick=\"cookieUpdate(1, false)\"></button>";
 	bakeryButton.remove();
 	
 }
@@ -133,7 +142,7 @@ function textUpdater() {
 			document.getElementById("nextUpgrade").innerHTML = ovenCost;
 			break;
 		case (bestCookies < bakeryFirst):
-			document.getElementById("nextUpgrade").innerHTML = 10000;
+			document.getElementById("nextUpgrade").innerHTML = bakeryCost;
 			break;
 		case (bestCookies < 100000):
 			document.getElementById("nextUpgrade").innerHTML = 100000;
