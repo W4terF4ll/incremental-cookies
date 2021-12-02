@@ -28,10 +28,15 @@
 	margin-bottom: 10px;
 }
 .bakeryText {
-	font-size: 26px;
+	font-size: 32px;
+	margin-bottom: 0px;
+}
+.bakeryInfo {
+	height: 5px
 }
 .bakeryMultiText {
 	margin-top: 10px;
+	margin-bottom: 20px;
 	font-size: 12px;
 }
 .bakeryMultiTextStyle {
