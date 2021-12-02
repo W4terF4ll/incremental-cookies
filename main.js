@@ -27,7 +27,7 @@ var bakeryFirst = 5000;
 var bakeryCost = 5000;
 var buttonLit = false;
 var randomLight = 0;
-var bakeryMulti = 1;
+var bakeryMulti = 0;
 
 //time functions
 function tick() {
