@@ -123,7 +123,7 @@ function ovenAdd() {
 function bakeryAdd() {
 	cookieUpdate(-(bakeryCost), false);
 	bakeryBought = true;
-	document.getElementById("bakeryText").innerHTML = "<p class=\"bakeryText\">-- BAKERY --</p>
+	document.getElementById("bakeryText").innerHTML = "<p class=\"bakeryText\">-- BAKERY --</p>"
 	document.getElementById("bakeryMultiDisplay").innerHTML = "<p class=\"bakeryMultiText\">Your Current Multiplier - <span id=\"bakeryMultiText\">0</span></p>
 	document.getElementById("bakeryTopLeft").innerHTML = "<button id=\"bakeryManager1\" class=\"bakeryStyle\" onclick=\"bakeryUnlight(1)\"></button>";
 	document.getElementById("bakeryTopMid").innerHTML = "<button id=\"bakeryManager2\" class=\"bakeryStyle\" onclick=\"bakeryUnlight(2)\"></button>";
