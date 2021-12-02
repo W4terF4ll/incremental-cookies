@@ -124,7 +124,8 @@ function bakeryAdd() {
 	cookieUpdate(-(bakeryCost), false);
 	bakeryBought = true;
 	document.getElementById("bakeryText").innerHTML = "<p class=\"bakeryText\">-- BAKERY --</p>"
-	document.getElementById("bakeryMultiDisplay").innerHTML = "<p class=\"bakeryMultiText\">Your Current Multiplier - <span class=\"bakeryMultiTextStyle\" id=\"bakeryMultiText\">1</span>x</p>"
+	document.getElementById("bakeryInfo").innerHTML = "<p class=\"bakeryInfo\">Click the lit up ovens to gain a stacking multiplier!</p>"
+	document.getElementById("bakeryMultiDisplay").innerHTML = "<p class=\"bakeryMultiText\">Current Bonus Multiplier: <span class=\"bakeryMultiTextStyle\" id=\"bakeryMultiText\">1</span>x</p>"
 	document.getElementById("bakeryTopLeft").innerHTML = "<button id=\"bakeryManager1\" class=\"bakeryStyle\" onclick=\"bakeryUnlight(1)\"></button>";
 	document.getElementById("bakeryTopMid").innerHTML = "<button id=\"bakeryManager2\" class=\"bakeryStyle\" onclick=\"bakeryUnlight(2)\"></button>";
 	document.getElementById("bakeryTopRight").innerHTML = "<button id=\"bakeryManager3\" class=\"bakeryStyle\" onclick=\"bakeryUnlight(3)\"></button>";
