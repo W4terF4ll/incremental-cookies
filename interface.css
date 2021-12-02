@@ -27,6 +27,12 @@
 	padding: 32px 32px;
 	margin-bottom: 10px;
 }
+.bakeryText {
+	font-size: 26px;
+}
+.bakeryMultiTextStyle {
+	color: green;
+}
 .cookies {
 	color: blue;
 	font-size: 26px;
