@@ -32,6 +32,9 @@ var buttonLit = false;
 var randomLight = 0;
 var bakeryMulti = 0;
 
+//bakery speed upgrade values
+
+
 //time functions
 function tick() {
 	timeElapsed++
@@ -74,7 +77,7 @@ function cookieUpdate(number, upgradeCalc) {
 	
 	//detecting if the new cookie amount unlocks anything or allows anything to be purchased
 	if (bestCookies >= oneFirst && oneUnlocked == false) {
-		document.getElementById("one").innerHTML = "<button id=\"oneButton\" onclick=\"oneAdd()\">Bake an extra cookie! (<span id=\"oneCost\">5</span> Cookies)</button>";
+		document.getElementById("one").innerHTML = "<button id=\"oneButton\" class=\"upgradeButton\" onclick=\"oneAdd()\">Bake an extra cookie! (<span id=\"oneCost\">5</span> Cookies)</button>";
 		oneUnlocked = true;
 	} else if (cookies >= oneCost && oneUnlocked == true) {
 		oneButton.removeAttribute("disabled");
@@ -82,7 +85,7 @@ function cookieUpdate(number, upgradeCalc) {
 		oneButton.setAttribute("disabled", "disabled");
 	}
 	if (bestCookies >= ovenFirst && ovenUnlocked == false) {
-		document.getElementById("oven").innerHTML = "<button id=\"ovenButton\" onclick=\"ovenAdd()\">Buy new ovens! (<span id=\"ovenCost\">100</span> Cookies)</button>";
+		document.getElementById("oven").innerHTML = "<button id=\"ovenButton\" class=\"upgradeButton\" onclick=\"ovenAdd()\">Buy new ovens! (<span id=\"ovenCost\">100</span> Cookies)</button>";
 		ovenUnlocked = true;
 	} else if (cookies >= ovenCost && ovenUnlocked == true) {
 		ovenButton.removeAttribute("disabled");
@@ -90,7 +93,7 @@ function cookieUpdate(number, upgradeCalc) {
 		ovenButton.setAttribute("disabled", "disabled");
 	}
 	if (bestCookies >= bakeryFirst && bakeryUnlocked == false) {
-		document.getElementById("bakery").innerHTML = "<button id=\"bakeryButton\" onclick=\"bakeryAdd()\">Construct a bakery! (<span id=\"bakeryCost\">5000</span> Cookies)</button>";
+		document.getElementById("bakery").innerHTML = "<button id=\"bakeryButton\" class=\"upgradeButton\" onclick=\"bakeryAdd()\">Construct a bakery! (<span id=\"bakeryCost\">5000</span> Cookies)</button>";
 		bakeryUnlocked = true;
 	} else if (cookies >= bakeryCost && bakeryUnlocked == true && bakeryBought == false) {
 		bakeryButton.removeAttribute("disabled");
@@ -143,7 +146,7 @@ function bakeryAdd() {
 
 //bakery button lighter and unlighter
 function bakeryLight() {
-	randomLight = Math.round(1 + Math.random() * 9)
+	randomLight = Math.round(1 + (Math.random() * 9))
 	document.getElementById("bakeryManager" + randomLight).setAttribute("class", "bakeryLit");
 	buttonLit = true;
 }
