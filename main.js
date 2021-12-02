@@ -89,7 +89,7 @@ function cookieUpdate(number, upgradeCalc) {
 	if (bestCookies >= bakeryFirst && bakeryUnlocked == false) {
 		document.getElementById("bakery").innerHTML = "<button id=\"bakeryButton\" onclick=\"bakeryAdd()\">Construct a bakery! (<span id=\"bakeryCost\">5000</span> Cookies)</button>";
 		bakeryUnlocked = true;
-	} else if (cookies >= bakeryCost && bakeryUnlocked == true) {
+	} else if (cookies >= bakeryCost && bakeryUnlocked == true && bakeryBought == false) {
 		bakeryButton.removeAttribute("disabled");
 	}
 	textUpdater();
