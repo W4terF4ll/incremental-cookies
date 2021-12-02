@@ -30,15 +30,20 @@
 .bakeryText {
 	font-size: 26px;
 }
+.bakeryMultiText {
+	margin-top: 10px;
+	font-size: 12px;
+}
 .bakeryMultiTextStyle {
 	color: green;
+	font-size: 14px;
 }
 .cookies {
 	color: blue;
 	font-size: 26px;
 }
 .cps {
-	margin-top: 20px;
+	margin-top: 10px;
 	font-size: 12px;
 }
 .cookiesPS {
