@@ -13,37 +13,41 @@ var timerID = -1;
 
 //one more values
 var oneUnlocked = false;
+var oneDisplay = 5;
 var oneCount = 0;
 var oneFirst = 5;
 var oneCost = oneFirst + Math.floor(oneCount * Math.pow(1.1,oneCount));
 
 //oven values
 var ovenUnlocked = false;
+var ovenDisplay = 50;
 var ovenCount = 0;
 var ovenFirst = 100;
 var ovenCost = ovenFirst + Math.floor(ovenCount * ovenFirst * Math.pow(3,ovenCount));
 
 //bakery values
 var bakeryUnlocked = false;
+var bakeryDisplay = 2000;
 var bakeryBought = false;
 var bakeryFirst = 5000;
 var bakeryCost = 5000;
 var buttonLit = false;
 var randomLight = 0;
-var bakeryMulti = 0;
+var bakeryMulti = 1;
 
 //bakery speed upgrade values
-
+var bakerySpeedUnlocked = false;
+var bakerySpeedDisplay = 70000;
+var bakerySpeed = 5000;
+var bakerySpeedCount = 0;
+var bakerySpeedFirst = 100000;
+var bakerySpeedCost = bakerySpeedFirst + Math.floor(bakerySpeedFirst * (2 * bakerySpeedCount))
 
 //time functions
 function tick() {
-	timeElapsed++
-	document.getElementById("time").innerHTML = timeElapsed;
+	timeElapsed += 1
+	document.getElementById("time").innerHTML = timeConvert(timeElapsed);
 	cookieUpdate(1, true);
-	if (bakeryBought == true && timeElapsed % 5 == 0 && buttonLit == false) {
-		bakeryLight();
-	}
-
 }
 
 function start() {
@@ -59,6 +63,24 @@ function stop() {
 	}
 }
 
+//time converter
+function timeConvert(time) {
+	var days = Math.floor(time / 86400);
+	var hours = Math.floor((time % 86400) / 3600);
+	var minutes = Math.floor((time % 3600) / 60);
+	var seconds = Math.floor(time % 60);
+	switch(true) {
+		case (time < 60):
+			return(seconds + "s");
+		case (time < 3600):
+			return(minutes + "m" + seconds + "s");
+		case (time < 86400):
+			return(hours + "h" + minutes + "m" + seconds + "s");
+		case (time >= 86400):
+			return(days + "d" + hours + "h" + minutes + "m" + seconds + "s");
+	}
+}
+
 //starting the timer
 start();
 
@@ -67,7 +89,7 @@ function cookieUpdate(number, upgradeCalc) {
 
 	//calculating the new cookies and updating the text
 	if (upgradeCalc == true) {
-		cookies = cookies + ((number + upgrade) * (multi + bakeryMulti));
+		cookies = cookies + ((number + upgrade) * (multi) * (bakeryMulti));
 	} else {
 		cookies = cookies + number;
 	}
@@ -76,55 +98,70 @@ function cookieUpdate(number, upgradeCalc) {
 	}
 	
 	//detecting if the new cookie amount unlocks anything or allows anything to be purchased
-	if (bestCookies >= oneFirst && oneUnlocked == false) {
-		document.getElementById("one").innerHTML = "<button id=\"oneButton\" class=\"upgradeButton\" onclick=\"oneAdd()\">Bake an extra cookie! (<span id=\"oneCost\">5</span> Cookies)</button>";
+	if (bestCookies >= oneDisplay && oneUnlocked == false) {
+		document.getElementById("one").innerHTML = "<button id=\"oneButton\" class=\"upgradeButton\" onclick=\"oneAdd()\">Bake an extra cookie! (<span id=\"oneCost\">" + numConvert(oneCost) + "</span> Cookies)</button>";
 		oneUnlocked = true;
-	} else if (cookies >= oneCost && oneUnlocked == true) {
+	}
+	if (cookies >= oneCost && oneUnlocked == true) {
 		oneButton.removeAttribute("disabled");
 	} else if (oneUnlocked == true) {
 		oneButton.setAttribute("disabled", "disabled");
 	}
-	if (bestCookies >= ovenFirst && ovenUnlocked == false) {
-		document.getElementById("oven").innerHTML = "<button id=\"ovenButton\" class=\"upgradeButton\" onclick=\"ovenAdd()\">Buy new ovens! (<span id=\"ovenCost\">100</span> Cookies)</button>";
+
+	if (bestCookies >= ovenDisplay && ovenUnlocked == false) {
+		document.getElementById("oven").innerHTML = "<button id=\"ovenButton\" class=\"upgradeButton\" onclick=\"ovenAdd()\">Buy new ovens! (<span id=\"ovenCost\">" + numConvert(ovenCost) + "</span> Cookies)</button>";
 		ovenUnlocked = true;
-	} else if (cookies >= ovenCost && ovenUnlocked == true) {
+	}
+	if (cookies >= ovenCost && ovenUnlocked == true) {
 		ovenButton.removeAttribute("disabled");
 	} else if (ovenUnlocked == true) {
 		ovenButton.setAttribute("disabled", "disabled");
 	}
-	if (bestCookies >= bakeryFirst && bakeryUnlocked == false) {
-		document.getElementById("bakery").innerHTML = "<button id=\"bakeryButton\" class=\"upgradeButton\" onclick=\"bakeryAdd()\">Construct a bakery! (<span id=\"bakeryCost\">5000</span> Cookies)</button>";
+
+	if (bestCookies >= bakeryDisplay && bakeryUnlocked == false) {
+		document.getElementById("bakery").innerHTML = "<button id=\"bakeryButton\" class=\"upgradeButton\" onclick=\"bakeryAdd()\">Construct a bakery! (<span id=\"bakeryCost\">" + numConvert(bakeryCost) + "</span> Cookies)</button>";
 		bakeryUnlocked = true;
-	} else if (cookies >= bakeryCost && bakeryUnlocked == true && bakeryBought == false) {
+	}
+	if (cookies >= bakeryCost && bakeryUnlocked == true && bakeryBought == false) {
 		bakeryButton.removeAttribute("disabled");
 	} else if (bakeryUnlocked == true && bakeryBought == false) {
 		bakeryButton.setAttribute("disabled", "disabled");
 	}
+
+	if (bestCookies >= bakerySpeedDisplay && bakeryBought == true && bakerySpeedUnlocked == false) {
+		document.getElementById("bakerySpeed").innerHTML = "<button id=\"bakerySpeedButton\" class=\"upgradeButton\" onclick=\"bakerySpeedAdd()\">Overclock your bakery! (<span id=\"bakerySpeedCost\">" + numConvert(bakerySpeedCost) + "</span> Cookies)</button>";
+		bakerySpeedUnlocked = true;
+	}
+	if (cookies >= bakerySpeedCost && bakerySpeedUnlocked == true && bakeryBought == true) {
+		bakerySpeedButton.removeAttribute("disabled");
+	} else if (bakerySpeedUnlocked == true && bakeryBought == true) {
+		bakerySpeedButton.setAttribute("disabled", "disabled");
+	}
+	
+	//update text
 	textUpdater();
 }
 
 //extra cookie upgrade
 function oneAdd() {
 	upgrade += 1;
-	textUpdater();
 	var oneTemp = oneCost;
-	document.getElementById("bakeCount").innerHTML = (upgrade + 1) * (multi + bakeryMulti);
 	oneCount += 1;
 	oneCost = oneFirst + Math.floor(oneCount * Math.pow(1.1,oneCount));
-	document.getElementById("oneCost").innerHTML = oneCost;
+	document.getElementById("oneCost").innerHTML = numConvert(oneCost);
 	cookieUpdate(-(oneTemp), false);
+	textUpdater();
 }
 
 //extra ovens upgrade
 function ovenAdd() {
 	multi *= 2;
-	textUpdater();
 	var ovenTemp = ovenCost
-	document.getElementById("bakeCount").innerHTML = (upgrade + 1) * multi;
 	ovenCount += 1;
 	ovenCost = ovenFirst + Math.floor(ovenCount * ovenFirst * Math.pow(3,ovenCount));
-	document.getElementById("ovenCost").innerHTML = ovenCost;
+	document.getElementById("ovenCost").innerHTML = numConvert(ovenCost);
 	cookieUpdate(-(ovenTemp), false);
+	textUpdater();
 }
 
 //bakery feature unlock
@@ -133,7 +170,7 @@ function bakeryAdd() {
 	bakeryBought = true;
 	document.getElementById("bakeryText").innerHTML = "<p class=\"bakeryText\">-- BAKERY --</p>"
 	document.getElementById("bakeryInfo").innerHTML = "<p class=\"bakeryInfo\">Click lit up ovens for a bonus multiplier!</p>"
-	document.getElementById("bakeryMultiDisplay").innerHTML = "<p class=\"bakeryMultiText\">Current Bonus Multiplier: <span class=\"bakeryMultiTextStyle\" id=\"bakeryMultiText\">0</span><span class=\"bakeryMultiTextStyle\">x</span></p>"
+	document.getElementById("bakeryMultiDisplay").innerHTML = "<p class=\"bakeryMultiText\">Current Bonus Multiplier: <span class=\"bakeryMultiTextStyle\" id=\"bakeryMultiText\">1.00</span><span class=\"bakeryMultiTextStyle\">x</span></p>"
 	document.getElementById("bakeryTopLeft").innerHTML = "<button id=\"bakeryManager1\" class=\"bakeryStyle\" onclick=\"bakeryUnlight(1)\"></button>";
 	document.getElementById("bakeryTopMid").innerHTML = "<button id=\"bakeryManager2\" class=\"bakeryStyle\" onclick=\"bakeryUnlight(2)\"></button>";
 	document.getElementById("bakeryTopRight").innerHTML = "<button id=\"bakeryManager3\" class=\"bakeryStyle\" onclick=\"bakeryUnlight(3)\"></button>";
@@ -143,12 +180,18 @@ function bakeryAdd() {
 	document.getElementById("bakeryBotLeft").innerHTML = "<button id=\"bakeryManager7\" class=\"bakeryStyle\" onclick=\"bakeryUnlight(7)\"></button>";
 	document.getElementById("bakeryBotMid").innerHTML = "<button id=\"bakeryManager8\" class=\"bakeryStyle\" onclick=\"bakeryUnlight(8)\"></button>";
 	document.getElementById("bakeryBotRight").innerHTML = "<button id=\"bakeryManager9\" class=\"bakeryStyle\" onclick=\"bakeryUnlight(9)\"></button>";
-	bakeryButton.remove();	
+	bakeryButton.remove();
+	removeBR.remove();
+	bakeryLightDelay();
 }
 
 //bakery button lighter and unlighter
+function bakeryLightDelay() {
+	setTimeout(bakeryLight, bakerySpeed);
+}
+
 function bakeryLight() {
-	randomLight = Math.round(1 + (Math.random() * 9))
+	randomLight = Math.round(1 + (Math.random() * 8))
 	document.getElementById("bakeryManager" + randomLight).setAttribute("class", "bakeryLit");
 	buttonLit = true;
 }
@@ -156,38 +199,73 @@ function bakeryLight() {
 function bakeryUnlight(num) {
 	if (buttonLit == true && num == randomLight) {
 		document.getElementById("bakeryManager" + randomLight).setAttribute("class", "bakeryStyle");
-		bakeryMulti += 1;
+		bakeryMulti *= 1.1;
 		buttonLit = false;
+		bakeryLightDelay();
 	} else {
-		bakeryMulti = 0;
+		document.getElementById("bakeryManager" + randomLight).setAttribute("class", "bakeryStyle");
+		bakeryMulti = 1;
+		buttonLit = false;
+		bakeryLightDelay();
 	}
 	textUpdater();
 }
 
+//bakery speed upgrade
+function bakerySpeedAdd() {
+	bakerySpeed /= 2;
+	var bakerySpeedTemp = bakerySpeedFirst + Math.floor(bakerySpeedFirst * (2 * bakerySpeedCount));
+	bakerySpeedCount += 1;
+	bakerySpeedCost = bakerySpeedFirst + Math.floor(bakerySpeedFirst * (2 * bakerySpeedCount));
+	document.getElementById("bakerySpeedCost").innerHTML = numConvert(bakerySpeedCost);
+	cookieUpdate(-(bakerySpeedTemp), false);
+	
+}
+
+//number converter
+function numConvert(num) {
+	if (num == 0) {
+		return (0)
+	} else if (num < 1000) {
+		return (Math.floor(num))
+	}
+	var power10 = (Math.round(Math.log(num) / Math.LN10 * 1000000) / 1000000);
+	var power10ceiling = Math.floor(power10) + 1;
+	var suffixes = ["", "k", "m", "b", "t", "qt", "qi", "sx", "sp", "oc", "no", "waytoomany"];
+	var suffixNum = Math.floor(power10 / 3);
+	var suffix = suffixes[suffixNum];
+	var suffixPower10 = Math.pow(10, suffixNum * 3);
+	var base = num / suffixPower10;
+	var baseRound = base.toFixed(2);
+	return (baseRound + suffix);
+}
+
 //display text updater
 function textUpdater() {
-	document.getElementById("cookies").innerHTML = cookies;
+	document.getElementById("cookies").innerHTML = numConvert(cookies);
 	if (bakeryBought == true) {
-		document.getElementById("bakeryMultiText").innerHTML = bakeryMulti;
+		document.getElementById("bakeryMultiText").innerHTML = bakeryMulti.toFixed(2);
 	}
-	document.getElementById("bakeCount").innerHTML = (upgrade + 1) * (multi + bakeryMulti);
+	document.getElementById("bakeCount").innerHTML = numConvert((upgrade + 1) * (multi) * (bakeryMulti));
 	switch (true) {
-		case (bestCookies < oneFirst):
-			document.getElementById("nextUpgrade").innerHTML = oneCost;
+		case (bestCookies < oneDisplay):
+			document.getElementById("nextUpgrade").innerHTML = numConvert(oneDisplay);
 			break;
-		case (bestCookies < ovenFirst):
-			document.getElementById("nextUpgrade").innerHTML = ovenCost;
+		case (bestCookies < ovenDisplay):
+			document.getElementById("nextUpgrade").innerHTML = numConvert(ovenDisplay);
 			break;
-		case (bestCookies < bakeryFirst):
-			document.getElementById("nextUpgrade").innerHTML = bakeryCost;
+		case (bestCookies < bakeryDisplay):
+			document.getElementById("nextUpgrade").innerHTML = numConvert(bakeryDisplay);
 			break;
-		case (bestCookies < 100000):
-			document.getElementById("nextUpgrade").innerHTML = 100000;
+		case (bestCookies < bakerySpeedDisplay):
+		case (bakeryBought == false):
+			document.getElementById("nextUpgrade").innerHTML = numConvert(bakerySpeedDisplay);
+			document.getElementById("nextUpgradeExtra").innerHTML = "and bakery purchased";
 			break;
 		default:
 			document.getElementById("nextText").innerHTML = "Game Complete! (for now...)";
 	}
-	if ((upgrade + 1) * (multi + bakeryMulti) > 1) {
+	if ((upgrade + 1) * (multi) * (bakeryMulti) > 2) {
 		document.getElementById("cookieText").innerHTML = "Cookies per Second!";
 	} else {
 		document.getElementById("cookieText").innerHTML = "Cookie per Second!";
