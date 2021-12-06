@@ -2,45 +2,45 @@
 bugs are expected, saving is unimplemented, and the code is messy */
 
 //core values
-var cookies = 0;
-var upgrade = 0;
-var multi = 1;
-var bestCookies = 0;
+var cookies = localStorage.getItem("cookies") || 0;
+var upgrade = localStorage.getItem("upgrade") || 0;
+var multi = localStorage.getItem("multi") || 1;
+var bestCookies = localStorage.getItem("bestCookies") || 0;
 
 //time values
-var timeElapsed = 0;
-var timerID = -1;
+var timeElapsed = localStorage.getItem("timeElapsed") || 0;
+var timerID = localStorage.getItem("timerID") || -1;
 
 //one more values
-var oneUnlocked = false;
+var oneUnlocked = localStorage.getItem("oneUnlocked") || false;
 var oneDisplay = 5;
-var oneCount = 0;
+var oneCount = localStorage.getItem("oneCount") || 0;
 var oneFirst = 5;
 var oneCost = oneFirst + Math.floor(oneCount * Math.pow(1.1,oneCount));
 
 //oven values
-var ovenUnlocked = false;
+var ovenUnlocked = localStorage.getItem("ovenUnlocked") || false;
 var ovenDisplay = 50;
-var ovenCount = 0;
+var ovenCount = localStorage.getItem("ovenCount") || 0;
 var ovenFirst = 100;
 var ovenCost = ovenFirst + Math.floor(ovenCount * ovenFirst * Math.pow(3,ovenCount));
 
 //bakery values
-var bakeryUnlocked = false;
+var bakeryUnlocked = localStorage.getItem("bakeryUnlocked") || false;
 var bakeryDisplay = 2000;
-var bakeryBought = false;
+var bakeryBought = localStorage.getItem("bakeryBought") || false;
 var bakeryFirst = 5000;
 var bakeryCost = 5000;
 var buttonLit = false;
 var randomLight = 0;
 var lightDelayRunning = false;
-var bakeryMulti = 1;
+var bakeryMulti = localStorage.getItem("bakeryMulti") || 1;
 
 //bakery speed upgrade values
-var bakerySpeedUnlocked = false;
+var bakerySpeedUnlocked = localStorage.getItem("bakerySpeedUnlocked") || false;
 var bakerySpeedDisplay = 70000;
-var bakerySpeed = 5000;
-var bakerySpeedCount = 0;
+var bakerySpeed = localStorage.getItem("bakerySpeed") || 5000;
+var bakerySpeedCount = localStorage.getItem("bakerySpeedCount") || 0;
 var bakerySpeedFirst = 100000;
 var bakerySpeedCost = bakerySpeedFirst + Math.floor(bakerySpeedFirst * (2 * bakerySpeedCount))
 
@@ -49,6 +49,9 @@ function tick() {
 	timeElapsed += 1
 	document.getElementById("time").innerHTML = timeConvert(timeElapsed);
 	cookieUpdate(1, true);
+	if (time % 5 == 0) {
+		saveProgress();
+	}
 }
 
 function start() {
@@ -279,3 +282,22 @@ function textUpdater() {
 	}
 }
 
+//save function (wip)
+function saveProgress() {
+	localStorage.setItem("cookies", cookies);
+	localStorage.setItem("upgrade", upgrade);
+	localStorage.setItem("multi", multi);
+	localStorage.setItem("bestCookies", bestCookies);
+	localStorage.setItem("timeElapsed", timeElapsed);
+	localStorage.setItem("timerID", timerID);
+	localStorage.setItem("oneUnlocked", oneUnlocked);
+	localStorage.setItem("oneCount", oneCount);
+	localStorage.setItem("ovenUnlocked", ovenUnlocked);
+	localStorage.setItem("ovenCount", ovenCount);
+	localStorage.setItem("bakeryUnlocked", bakeryUnlocked);
+	localStorage.setItem("bakeryBought", bakeryBought);
+	localStorage.setItem("bakeryMulti", bakeryMulti);
+	localStorage.setItem("bakerySpeedUnlocked", bakerySpeedUnlocked);
+	localStorage.setItem("bakerySpeed", bakerySpeed);
+	localStorage.setItem("bakerySpeedCount", bakerySpeedCount);
+}
