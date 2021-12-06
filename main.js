@@ -44,12 +44,21 @@ var bakerySpeedCount = 0;
 var bakerySpeedFirst = 100000;
 var bakerySpeedCost = bakerySpeedFirst + Math.floor(bakerySpeedFirst * (2 * bakerySpeedCount))
 
+//loading progress if needed
+function onOpen() {
+	if (JSON.parse(localStorage.getItem(variableList[0])) > 1) {
+		loadProgress();
+	}
+}
+
+onOpen();
+
 //time functions
 function tick() {
 	timeElapsed += 1
 	document.getElementById("time").innerHTML = timeConvert(timeElapsed);
 	cookieUpdate(1, true);
-	if (time % 5 == 0) {
+	if (timeElapsed % 5 == 0) {
 		saveProgress();
 	}
 }
@@ -103,7 +112,7 @@ function cookieUpdate(number, upgradeCalc) {
 	
 	//detecting if the new cookie amount unlocks anything or allows anything to be purchased
 	if (bestCookies >= oneDisplay && oneUnlocked == false) {
-		document.getElementById("one").innerHTML = "<button id=\"oneButton\" class=\"upgradeButton\" onclick=\"oneAdd()\">Bake an extra cookie! (<span id=\"oneCost\">" + numConvert(oneCost) + "</span> Cookies)</button>";
+		document.getElementById("one").innerHTML = "<button id=\"oneButton\" class=\"upgradeButton\" onclick=\"oneAdd()\">Bake an extra cookie! (<span id=\"oneCost\">" + numConvert(oneCost, false) + "</span> Cookies)</button>";
 		oneUnlocked = true;
 	}
 	if (cookies >= oneCost && oneUnlocked == true) {
@@ -113,7 +122,7 @@ function cookieUpdate(number, upgradeCalc) {
 	}
 
 	if (bestCookies >= ovenDisplay && ovenUnlocked == false) {
-		document.getElementById("oven").innerHTML = "<button id=\"ovenButton\" class=\"upgradeButton\" onclick=\"ovenAdd()\">Buy new ovens! (<span id=\"ovenCost\">" + numConvert(ovenCost) + "</span> Cookies)</button>";
+		document.getElementById("oven").innerHTML = "<button id=\"ovenButton\" class=\"upgradeButton\" onclick=\"ovenAdd()\">Buy new ovens! (<span id=\"ovenCost\">" + numConvert(ovenCost, false) + "</span> Cookies)</button>";
 		ovenUnlocked = true;
 	}
 	if (cookies >= ovenCost && ovenUnlocked == true) {
@@ -123,7 +132,7 @@ function cookieUpdate(number, upgradeCalc) {
 	}
 
 	if (bestCookies >= bakeryDisplay && bakeryUnlocked == false) {
-		document.getElementById("bakery").innerHTML = "<button id=\"bakeryButton\" class=\"upgradeButton\" onclick=\"bakeryAdd()\">Construct a bakery! (<span id=\"bakeryCost\">" + numConvert(bakeryCost) + "</span> Cookies)</button>";
+		document.getElementById("bakery").innerHTML = "<button id=\"bakeryButton\" class=\"upgradeButton\" onclick=\"bakeryAdd()\">Construct a bakery! (<span id=\"bakeryCost\">" + numConvert(bakeryCost, false) + "</span> Cookies)</button>";
 		bakeryUnlocked = true;
 	}
 	if (cookies >= bakeryCost && bakeryUnlocked == true && bakeryBought == false) {
@@ -133,7 +142,7 @@ function cookieUpdate(number, upgradeCalc) {
 	}
 
 	if (bestCookies >= bakerySpeedDisplay && bakeryBought == true && bakerySpeedUnlocked == false) {
-		document.getElementById("bakerySpeed").innerHTML = "<button id=\"bakerySpeedButton\" class=\"upgradeButton\" onclick=\"bakerySpeedAdd()\">Overclock your bakery! (<span id=\"bakerySpeedCost\">" + numConvert(bakerySpeedCost) + "</span> Cookies)</button>";
+		document.getElementById("bakerySpeed").innerHTML = "<button id=\"bakerySpeedButton\" class=\"upgradeButton\" onclick=\"bakerySpeedAdd()\">Overclock your bakery! (<span id=\"bakerySpeedCost\">" + numConvert(bakerySpeedCost, false) + "</span> Cookies)</button>";
 		bakerySpeedUnlocked = true;
 	}
 	if (cookies >= bakerySpeedCost && bakerySpeedUnlocked == true && bakeryBought == true) {
