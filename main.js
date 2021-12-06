@@ -249,7 +249,7 @@ function numConvert(num) {
 function textUpdater() {
 	document.getElementById("cookies").innerHTML = numConvert(cookies);
 	if (bakeryBought == true) {
-		document.getElementById("bakeryMultiText").innerHTML = bakeryMulti.toFixed(2);
+		document.getElementById("bakeryMultiText").innerHTML = numConvert(bakeryMulti);
 	}
 	document.getElementById("bakeCount").innerHTML = numConvert((upgrade + 1) * (multi) * (bakeryMulti));
 	switch (true) {
