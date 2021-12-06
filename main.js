@@ -210,6 +210,8 @@ function bakeryUnlight(num) {
 		bakeryMulti = 1;
 		buttonLit = false;
 		bakeryLightDelay();
+	} else {
+		bakeryMulti = 1;
 	}
 	textUpdater();
 }
