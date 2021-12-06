@@ -282,42 +282,20 @@ function textUpdater() {
 	}
 }
 
+//data handling
+var variableList = ["cookies", "upgrade", "multi", "bestCookies", "timeElapsed", "timerID", "oneUnlocked", "oneCount", "ovenUnlocked", "ovenCount", "bakeryUnlocked", "bakeryBought", "bakeryMulti", "bakerySpeedUnlocked", "bakerySpeed", "bakerySpeedCount"];
+
 //save function (wip)
 function saveProgress() {
-	localStorage.setItem("cookies", cookies);
-	localStorage.setItem("upgrade", upgrade);
-	localStorage.setItem("multi", multi);
-	localStorage.setItem("bestCookies", bestCookies);
-	localStorage.setItem("timeElapsed", timeElapsed);
-	localStorage.setItem("timerID", timerID);
-	localStorage.setItem("oneUnlocked", oneUnlocked);
-	localStorage.setItem("oneCount", oneCount);
-	localStorage.setItem("ovenUnlocked", ovenUnlocked);
-	localStorage.setItem("ovenCount", ovenCount);
-	localStorage.setItem("bakeryUnlocked", bakeryUnlocked);
-	localStorage.setItem("bakeryBought", bakeryBought);
-	localStorage.setItem("bakeryMulti", bakeryMulti);
-	localStorage.setItem("bakerySpeedUnlocked", bakerySpeedUnlocked);
-	localStorage.setItem("bakerySpeed", bakerySpeed);
-	localStorage.setItem("bakerySpeedCount", bakerySpeedCount);
+	for (var i = 0; i < variableList.length; i++){
+		localStorage.setItem(variableList[i], JSON.stringify(window[variableList[i]]));
+	}
 }
 
 //load function (wip)
 function loadProgress() {
-	let cookies = localStorage.getItem("cookies");
-	let upgrade = localStorage.getItem("upgrade");
-	let multi = localStorage.getItem("multi");
-	let bestCookies = localStorage.getItem("bestCookies");
-	let timeElapsed = localStorage.getItem("timeElapsed");
-	let timerID = localStorage.getItem("timerID");
-	let oneUnlocked = localStorage.getItem("oneUnlocked");
-	let oneCount = localStorage.getItem("oneCount");
-	let ovenUnlocked = localStorage.getItem("ovenUnlocked");
-	let ovenCount = localStorage.getItem("ovenCount");
-	let bakeryUnlocked = localStorage.getItem("bakeryUnlocked");
-	let bakeryBought = localStorage.getItem("bakeryBought");
-	let bakerySpeedUnlocked = localStorage.getItem("bakerySpeedUnlocked");
-	let bakerySpeed = localStorage.getItem("bakerySpeed");
-	let bakerySpeedCount = localStorage.getItem("bakerySpeedCount");
+	for (var i = 0; i < variableList.length; i++) {
+		window[variableList[i]] = JSON.parse(localStorage.getItem(variableList[i]));
+ 	}
 	textUpdater();
 }
