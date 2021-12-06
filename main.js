@@ -297,6 +297,9 @@ function loadProgress() {
 	for (var i = 0; i < variableList.length; i++) {
 		window[variableList[i]] = JSON.parse(localStorage.getItem(variableList[i]));
  	}
+	if (bakeryBought == true) {
+		bakeryAdd();
+	}
 	textUpdater();
 }
 
