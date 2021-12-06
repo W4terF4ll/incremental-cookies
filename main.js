@@ -205,7 +205,7 @@ function bakeryUnlight(num) {
 		bakeryMulti *= 1.1;
 		buttonLit = false;
 		bakeryLightDelay();
-	} else {
+	} else if (lightDelayRunning == false) {
 		document.getElementById("bakeryManager" + randomLight).setAttribute("class", "bakeryStyle");
 		bakeryMulti = 1;
 		buttonLit = false;
