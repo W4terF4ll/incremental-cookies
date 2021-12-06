@@ -304,20 +304,20 @@ function saveProgress() {
 
 //load function (wip)
 function loadProgress() {
-	cookies = localStorage.getItem("cookies");
-	upgrade = localStorage.getItem("upgrade");
-	multi = localStorage.getItem("multi");
-	bestCookies = localStorage.getItem("bestCookies");
-	timeElapsed = localStorage.getItem("timeElapsed");
-	timerID = localStorage.getItem("timerID");
-	oneUnlocked = localStorage.getItem("oneUnlocked");
-	oneCount = localStorage.getItem("oneCount");
-	ovenUnlocked = localStorage.getItem("ovenUnlocked");
-	ovenCount = localStorage.getItem("ovenCount");
-	bakeryUnlocked = localStorage.getItem("bakeryUnlocked");
-	bakeryBought = localStorage.getItem("bakeryBought");
-	bakerySpeedUnlocked = localStorage.getItem("bakerySpeedUnlocked");
-	bakerySpeed = localStorage.getItem("bakerySpeed");
-	bakerySpeedCount = localStorage.getItem("bakerySpeedCount");
+	let cookies = localStorage.getItem("cookies");
+	let upgrade = localStorage.getItem("upgrade");
+	let multi = localStorage.getItem("multi");
+	let bestCookies = localStorage.getItem("bestCookies");
+	let timeElapsed = localStorage.getItem("timeElapsed");
+	let timerID = localStorage.getItem("timerID");
+	let oneUnlocked = localStorage.getItem("oneUnlocked");
+	let oneCount = localStorage.getItem("oneCount");
+	let ovenUnlocked = localStorage.getItem("ovenUnlocked");
+	let ovenCount = localStorage.getItem("ovenCount");
+	let bakeryUnlocked = localStorage.getItem("bakeryUnlocked");
+	let bakeryBought = localStorage.getItem("bakeryBought");
+	let bakerySpeedUnlocked = localStorage.getItem("bakerySpeedUnlocked");
+	let bakerySpeed = localStorage.getItem("bakerySpeed");
+	let bakerySpeedCount = localStorage.getItem("bakerySpeedCount");
 	textUpdater();
 }
