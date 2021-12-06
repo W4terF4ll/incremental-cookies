@@ -231,9 +231,9 @@ function bakerySpeedAdd() {
 function numConvert(num, extra) {
 	if (num == 0) {
 		return (0);
-	} else if (num < 1000 && extra == false) {
-		return (Math.floor(num));
 	} else if (num < 1000 && extra == true) {
+		return (Math.floor(num));
+	} else if (num < 1000 && extra == false) {
 		return (num.toFixed(2));
 	}
 	var power10 = (Math.round(Math.log(num) / Math.LN10 * 1000000) / 1000000);
@@ -251,7 +251,7 @@ function numConvert(num, extra) {
 function textUpdater() {
 	document.getElementById("cookies").innerHTML = numConvert(cookies);
 	if (bakeryBought == true) {
-		document.getElementById("bakeryMultiText").innerHTML = numConvert(bakeryMulti, true);
+		document.getElementById("bakeryMultiText").innerHTML = numConvert(bakeryMulti, false);
 	}
 	document.getElementById("bakeCount").innerHTML = numConvert((upgrade + 1) * (multi) * (bakeryMulti));
 	switch (true) {
