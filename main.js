@@ -283,7 +283,7 @@ function textUpdater() {
 }
 
 //data handling
-var variableList = ["cookies", "upgrade", "multi", "bestCookies", "timeElapsed", "timerID", "oneUnlocked", "oneCount", "ovenUnlocked", "ovenCount", "bakeryUnlocked", "bakeryBought", "bakeryMulti", "bakerySpeedUnlocked", "bakerySpeed", "bakerySpeedCount"];
+var variableList = ["cookies", "upgrade", "multi", "bestCookies", "timeElapsed", "timerID", "oneCount", "ovenCount", "bakeryBought", "bakeryMulti", "bakerySpeed", "bakerySpeedCount"];
 
 //save function (wip)
 function saveProgress() {
