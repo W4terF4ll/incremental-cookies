@@ -33,6 +33,7 @@ var bakeryFirst = 5000;
 var bakeryCost = 5000;
 var buttonLit = false;
 var randomLight = 0;
+var lightDelayRunning = false;
 var bakeryMulti = 1;
 
 //bakery speed upgrade values
@@ -187,10 +188,12 @@ function bakeryAdd() {
 
 //bakery button lighter and unlighter
 function bakeryLightDelay() {
+	lightDelayRunning = true;
 	setTimeout(bakeryLight, bakerySpeed);
 }
 
 function bakeryLight() {
+	lightDelayRunning = false;
 	randomLight = Math.round(1 + (Math.random() * 8))
 	document.getElementById("bakeryManager" + randomLight).setAttribute("class", "bakeryLit");
 	buttonLit = true;
@@ -271,3 +274,4 @@ function textUpdater() {
 		document.getElementById("cookieText").innerHTML = "Cookie per Second!";
 	}
 }
+
