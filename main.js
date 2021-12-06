@@ -270,7 +270,7 @@ function textUpdater() {
 		default:
 			document.getElementById("nextText").innerHTML = "Game Complete! (for now...)";
 	}
-	if ((upgrade + 1) * (multi) * (bakeryMulti) > 2) {
+	if ((upgrade + 1) * (multi) * (bakeryMulti) > 1.9) {
 		document.getElementById("cookieText").innerHTML = "Cookies per Second!";
 	} else {
 		document.getElementById("cookieText").innerHTML = "Cookie per Second!";
