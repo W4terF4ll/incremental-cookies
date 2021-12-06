@@ -44,15 +44,6 @@ var bakerySpeedCount = 0;
 var bakerySpeedFirst = 100000;
 var bakerySpeedCost = bakerySpeedFirst + Math.floor(bakerySpeedFirst * (2 * bakerySpeedCount))
 
-//loading progress if needed
-function onOpen() {
-	if (JSON.parse(localStorage.getItem(variableList[0])) > 1) {
-		loadProgress();
-	}
-}
-
-onOpen();
-
 //time functions
 function tick() {
 	timeElapsed += 1
@@ -296,7 +287,7 @@ var variableList = ["cookies", "upgrade", "multi", "bestCookies", "timeElapsed",
 
 //save function (wip)
 function saveProgress() {
-	for (var i = 0; i < variableList.length; i++){
+	for (var i = 0; i < variableList.length; i++) {
 		localStorage.setItem(variableList[i], JSON.stringify(window[variableList[i]]));
 	}
 }
@@ -308,3 +299,12 @@ function loadProgress() {
  	}
 	textUpdater();
 }
+
+//loading progress if needed
+function onOpen() {
+	if (JSON.parse(localStorage.getItem(variableList[0])) > 1) {
+		loadProgress();
+	}
+}
+
+onOpen();
