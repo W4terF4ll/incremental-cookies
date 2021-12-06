@@ -252,6 +252,7 @@ function numConvert(num, extra) {
 
 //display text updater
 function textUpdater() {
+	document.getElementById("time").innerHTML = timeConvert(timeElapsed);
 	document.getElementById("cookies").innerHTML = numConvert(cookies, false);
 	if (bakeryBought == true) {
 		document.getElementById("bakeryMultiText").innerHTML = numConvert(bakeryMulti, true);
