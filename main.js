@@ -251,7 +251,7 @@ function numConvert(num, extra) {
 function textUpdater() {
 	document.getElementById("cookies").innerHTML = numConvert(cookies);
 	if (bakeryBought == true) {
-		document.getElementById("bakeryMultiText").innerHTML = bakeryMulti;
+		document.getElementById("bakeryMultiText").innerHTML = numConvert(bakeryMulti, true);
 	}
 	document.getElementById("bakeCount").innerHTML = numConvert((upgrade + 1) * (multi) * (bakeryMulti));
 	switch (true) {
