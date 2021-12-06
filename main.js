@@ -149,7 +149,7 @@ function oneAdd() {
 	var oneTemp = oneCost;
 	oneCount += 1;
 	oneCost = oneFirst + Math.floor(oneCount * Math.pow(1.1,oneCount));
-	document.getElementById("oneCost").innerHTML = numConvert(oneCost);
+	document.getElementById("oneCost").innerHTML = numConvert(oneCost, false);
 	cookieUpdate(-(oneTemp), false);
 	textUpdater();
 }
@@ -160,7 +160,7 @@ function ovenAdd() {
 	var ovenTemp = ovenCost
 	ovenCount += 1;
 	ovenCost = ovenFirst + Math.floor(ovenCount * ovenFirst * Math.pow(3,ovenCount));
-	document.getElementById("ovenCost").innerHTML = numConvert(ovenCost);
+	document.getElementById("ovenCost").innerHTML = numConvert(ovenCost, false);
 	cookieUpdate(-(ovenTemp), false);
 	textUpdater();
 }
@@ -222,7 +222,7 @@ function bakerySpeedAdd() {
 	var bakerySpeedTemp = bakerySpeedFirst + Math.floor(bakerySpeedFirst * (2 * bakerySpeedCount));
 	bakerySpeedCount += 1;
 	bakerySpeedCost = bakerySpeedFirst + Math.floor(bakerySpeedFirst * (2 * bakerySpeedCount));
-	document.getElementById("bakerySpeedCost").innerHTML = numConvert(bakerySpeedCost);
+	document.getElementById("bakerySpeedCost").innerHTML = numConvert(bakerySpeedCost, false);
 	cookieUpdate(-(bakerySpeedTemp), false);
 	
 }
@@ -231,9 +231,9 @@ function bakerySpeedAdd() {
 function numConvert(num, extra) {
 	if (num == 0) {
 		return (0);
-	} else if (num < 1000 && extra == true) {
-		return (Math.floor(num));
 	} else if (num < 1000 && extra == false) {
+		return (Math.floor(num));
+	} else if (num < 1000 && extra == true) {
 		return (num.toFixed(2));
 	}
 	var power10 = (Math.round(Math.log(num) / Math.LN10 * 1000000) / 1000000);
@@ -249,24 +249,24 @@ function numConvert(num, extra) {
 
 //display text updater
 function textUpdater() {
-	document.getElementById("cookies").innerHTML = numConvert(cookies);
+	document.getElementById("cookies").innerHTML = numConvert(cookies, false);
 	if (bakeryBought == true) {
-		document.getElementById("bakeryMultiText").innerHTML = numConvert(bakeryMulti, false);
+		document.getElementById("bakeryMultiText").innerHTML = numConvert(bakeryMulti, true);
 	}
-	document.getElementById("bakeCount").innerHTML = numConvert((upgrade + 1) * (multi) * (bakeryMulti));
+	document.getElementById("bakeCount").innerHTML = numConvert((upgrade + 1) * (multi) * (bakeryMulti), false);
 	switch (true) {
 		case (bestCookies < oneDisplay):
-			document.getElementById("nextUpgrade").innerHTML = numConvert(oneDisplay);
+			document.getElementById("nextUpgrade").innerHTML = numConvert(oneDisplay, false);
 			break;
 		case (bestCookies < ovenDisplay):
-			document.getElementById("nextUpgrade").innerHTML = numConvert(ovenDisplay);
+			document.getElementById("nextUpgrade").innerHTML = numConvert(ovenDisplay, false);
 			break;
 		case (bestCookies < bakeryDisplay):
-			document.getElementById("nextUpgrade").innerHTML = numConvert(bakeryDisplay);
+			document.getElementById("nextUpgrade").innerHTML = numConvert(bakeryDisplay, false);
 			break;
 		case (bestCookies < bakerySpeedDisplay):
 		case (bakeryBought == false):
-			document.getElementById("nextUpgrade").innerHTML = numConvert(bakerySpeedDisplay);
+			document.getElementById("nextUpgrade").innerHTML = numConvert(bakerySpeedDisplay, false);
 			document.getElementById("nextUpgradeExtra").innerHTML = "and bakery purchased";
 			break;
 		default:
