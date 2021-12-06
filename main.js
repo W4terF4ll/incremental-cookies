@@ -228,11 +228,13 @@ function bakerySpeedAdd() {
 }
 
 //number converter
-function numConvert(num) {
+function numConvert(num, extra) {
 	if (num == 0) {
-		return (0)
-	} else if (num < 1000) {
-		return (Math.floor(num))
+		return (0);
+	} else if (num < 1000 && extra == false) {
+		return (Math.floor(num));
+	} else if (num < 1000 && extra == true) {
+		return (num.toFixed(2));
 	}
 	var power10 = (Math.round(Math.log(num) / Math.LN10 * 1000000) / 1000000);
 	var power10ceiling = Math.floor(power10) + 1;
@@ -249,7 +251,7 @@ function numConvert(num) {
 function textUpdater() {
 	document.getElementById("cookies").innerHTML = numConvert(cookies);
 	if (bakeryBought == true) {
-		document.getElementById("bakeryMultiText").innerHTML = numConvert(bakeryMulti);
+		document.getElementById("bakeryMultiText").innerHTML = bakeryMulti;
 	}
 	document.getElementById("bakeCount").innerHTML = numConvert((upgrade + 1) * (multi) * (bakeryMulti));
 	switch (true) {
