@@ -1,0 +1,9 @@
+# incremental_project
+first try at making an incremental game
+
+-- CHANGELOG --
+12/6/21: 
+- created the changelog 
+- added saving (finally) 
+- fixed bug with the bakery 
+- formatted bakery multi text better
