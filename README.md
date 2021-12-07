@@ -1,6 +1,15 @@
 # incremental_project
 first try at making an incremental game
 
+-- PLANS --
+
+- bakery multi decay + anti multi decay upgrade
+- bakery balancing with raisable soft cap
+- settings icon with credits, save/load, changelog
+- get the game on google search results
+- next module (rhythm game style with arrow keys)
+- better mobile display
+- way to stop the timer (maybe when hitting undefined cookies)
 
 -- CHANGELOG --
 
