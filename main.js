@@ -1,5 +1,5 @@
 /* DISCLAIMER: this game is in super duper early beta alpha gamma
-bugs are expected, saving is unimplemented, and the code is messy */
+bugs are expected and the code is messy */
 
 //core values
 var cookies = 0;
