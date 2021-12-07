@@ -9,3 +9,11 @@ first try at making an incremental game
 - added saving (finally) 
 - fixed bug with the bakery 
 - formatted bakery multi text better
+
+pre changelog:
+- created github page
+- made game
+- fixed a ton of bugs
+- styled game
+- drew favicon
+- added bakery
