@@ -10,7 +10,7 @@ first try at making an incremental game
 - fixed bug with the bakery 
 - formatted bakery multi text better
 
-pre changelog:
+Pre Changelog:
 - created github page
 - made game
 - fixed a ton of bugs
