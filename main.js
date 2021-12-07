@@ -170,7 +170,6 @@ function ovenAdd() {
 
 //bakery feature unlock
 function bakeryAdd() {
-	cookieUpdate(-(bakeryCost), false);
 	bakeryBought = true;
 	document.getElementById("bakeryText").innerHTML = "<p class=\"bakeryText\">-- BAKERY --</p>"
 	document.getElementById("bakeryInfo").innerHTML = "<p class=\"bakeryInfo\">Click lit up ovens for a bonus multiplier!</p>"
@@ -186,6 +185,7 @@ function bakeryAdd() {
 	document.getElementById("bakeryBotRight").innerHTML = "<button id=\"bakeryManager9\" class=\"bakeryStyle\" onclick=\"bakeryUnlight(9)\"></button>";
 	bakeryButton.remove();
 	removeBR.remove();
+	cookieUpdate(-(bakeryCost), false);
 	bakeryLightDelay();
 }
 
