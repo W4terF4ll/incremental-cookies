@@ -171,7 +171,6 @@ function ovenAdd() {
 //bakery feature unlock
 function bakeryAdd() {
 	bakeryBought = true;
-	cookieUpdate(-(bakeryCost), false);
 	document.getElementById("bakeryText").innerHTML = "<p class=\"bakeryText\">-- BAKERY --</p>"
 	document.getElementById("bakeryInfo").innerHTML = "<p class=\"bakeryInfo\">Click lit up ovens for a bonus multiplier!</p>"
 	document.getElementById("bakeryMultiDisplay").innerHTML = "<p class=\"bakeryMultiText\">Current Bonus Multiplier: <span class=\"bakeryMultiTextStyle\" id=\"bakeryMultiText\">1.00</span><span class=\"bakeryMultiTextStyle\">x</span></p>"
@@ -183,7 +182,8 @@ function bakeryAdd() {
 	document.getElementById("bakeryMidRight").innerHTML = "<button id=\"bakeryManager6\" class=\"bakeryStyle\" onclick=\"bakeryUnlight(6)\"></button>";
 	document.getElementById("bakeryBotLeft").innerHTML = "<button id=\"bakeryManager7\" class=\"bakeryStyle\" onclick=\"bakeryUnlight(7)\"></button>";
 	document.getElementById("bakeryBotMid").innerHTML = "<button id=\"bakeryManager8\" class=\"bakeryStyle\" onclick=\"bakeryUnlight(8)\"></button>";
-	document.getElementById("bakeryBotRight").innerHTML = "<button id=\"bakeryManager9\" class=\"bakeryStyle\" onclick=\"bakeryUnlight(9)\"></button>";
+	document.getElementById("bakeryBotRight").innerHTML = "<button id=\"bakeryManager9\" class=\"bakeryStyle\" onclick=\"bakeryUnlight(9)\"></button>";\
+	cookieUpdate(-(bakeryCost), false);
 	bakeryButton.remove();
 	removeBR.remove();
 	bakeryLightDelay();
