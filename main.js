@@ -284,7 +284,7 @@ function textUpdater() {
 }
 
 //data handling
-var variableList = ["cookies", "upgrade", "multi", "bestCookies", "timeElapsed", "timerID", "oneCount", "ovenCount", "bakeryBought", "bakeryMulti", "bakerySpeed", "bakerySpeedCount"];
+var variableList = ["cookies", "upgrade", "multi", "bestCookies", "timeElapsed", "timerID", "oneCount", "oneCost", "ovenCount", "ovenCost", "bakeryBought", "bakeryMulti", "bakerySpeed", "bakerySpeedCount", "bakerySpeedCost"];
 
 //save function (wip)
 function saveProgress() {
