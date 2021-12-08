@@ -227,7 +227,9 @@ function bakerySpeedAdd() {
 	bakerySpeedCost = bakerySpeedFirst + Math.floor(bakerySpeedFirst * (2 * bakerySpeedCount));
 	document.getElementById("bakerySpeedCost").innerHTML = numConvert(bakerySpeedCost, false);
 	cookieUpdate(-(bakerySpeedTemp), false);
-	
+	if (bakerySpeedCount >= 6) {
+		bakerySpeed.remove();
+	}
 }
 
 //number converter
