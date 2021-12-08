@@ -305,7 +305,7 @@ function loadProgress() {
 	if (bakeryBought == true) {
 		bakeryAdd();
 	}
-	if (bakerySpeedCount >= 6 && bakerySpeedComplete = false) {
+	if (bakerySpeedCount >= 6 && bakerySpeedComplete == false) {
 		bakerySpeedComplete = true;
 		bakerySpeedButton.remove();
 	}
