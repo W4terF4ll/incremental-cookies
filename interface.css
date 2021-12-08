@@ -52,7 +52,7 @@
 	position: absolute;
 	text-align: center;
 	top: 50%;
-	left: 15%;
+	left: 10%;
 	-moz-transform: translateX(-15%) translateY(-50%);
 	-webkit-transform: translateX(-15%) translateY(-50%);
 	transform: translateX(-15%) translateY(-50%);
