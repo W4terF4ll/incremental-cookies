@@ -305,11 +305,17 @@ function loadProgress() {
 	if (bakeryBought == true) {
 		bakeryAdd();
 	}
-	if (bakerySpeedCount >= 6) {
+	if (bakerySpeedCount >= 6 && bakerySpeedComplete = false) {
 		bakerySpeedComplete = true;
 		bakerySpeedButton.remove();
 	}
 	textUpdater();
+}
+
+//reset function
+function resetProgress() {
+	localStorage.clear();
+	window.location.reload();
 }
 
 //loading progress if needed
