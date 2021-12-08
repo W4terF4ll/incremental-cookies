@@ -133,7 +133,7 @@ function cookieUpdate(number, upgradeCalc) {
 		bakeryButton.setAttribute("disabled", "disabled");
 	}
 
-	if (bestCookies >= bakerySpeedDisplay && bakeryBought == true && bakerySpeedUnlocked == false) {
+	if (bestCookies >= bakerySpeedDisplay && bakeryBought == true && bakerySpeedUnlocked == false && bakerySpeedComplete == false) {
 		document.getElementById("bakerySpeed").innerHTML = "<button id=\"bakerySpeedButton\" class=\"upgradeButton\" onclick=\"bakerySpeedAdd()\">Overclock your bakery! (<span id=\"bakerySpeedCost\">" + numConvert(bakerySpeedCost, false) + "</span> Cookies)</button>";
 		bakerySpeedUnlocked = true;
 	}
