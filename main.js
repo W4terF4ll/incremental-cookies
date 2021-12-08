@@ -133,10 +133,6 @@ function cookieUpdate(number, upgradeCalc) {
 		bakeryButton.setAttribute("disabled", "disabled");
 	}
 	
-	if (bakerySpeedCount >= 6) {
-		bakerySpeedComplete = true;
-		bakerySpeedButton.remove();
-	}
 	if (bestCookies >= bakerySpeedDisplay && bakeryBought == true && bakerySpeedUnlocked == false && bakerySpeedComplete == false) {
 		document.getElementById("bakerySpeed").innerHTML = "<button id=\"bakerySpeedButton\" class=\"upgradeButton\" onclick=\"bakerySpeedAdd()\">Overclock your bakery! (<span id=\"bakerySpeedCost\">" + numConvert(bakerySpeedCost, false) + "</span> Cookies)</button>";
 		bakerySpeedUnlocked = true;
@@ -232,6 +228,10 @@ function bakerySpeedAdd() {
 	bakerySpeedCost = bakerySpeedFirst + Math.floor(bakerySpeedFirst * (2 * bakerySpeedCount));
 	document.getElementById("bakerySpeedCost").innerHTML = numConvert(bakerySpeedCost, false);
 	cookieUpdate(-(bakerySpeedTemp), false);
+	if (bakerySpeedCount >= 6) {
+		bakerySpeedComplete = true;
+		bakerySpeedButton.remove();
+	}
 }
 
 //number converter
@@ -304,6 +304,10 @@ function loadProgress() {
  	}
 	if (bakeryBought == true) {
 		bakeryAdd();
+	}
+	if (bakerySpeedCount >= 6) {
+		bakerySpeedComplete = true;
+		bakerySpeedButton.remove();
 	}
 	textUpdater();
 }
