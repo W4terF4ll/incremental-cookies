@@ -53,9 +53,9 @@
 	text-align: center;
 	top: 50%;
 	left: 10%;
-	-moz-transform: translateX(-15%) translateY(-50%);
-	-webkit-transform: translateX(-15%) translateY(-50%);
-	transform: translateX(-15%) translateY(-50%);
+	-moz-transform: translateX(-10%) translateY(-50%);
+	-webkit-transform: translateX(-10%) translateY(-50%);
+	transform: translateX(-10%) translateY(-50%);
 	font-family: "Lucida Console", "Courier New", monospace;
 }
 /* bakery buttons */
