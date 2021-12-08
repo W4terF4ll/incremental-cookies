@@ -40,6 +40,7 @@ var bakeryMulti = 1;
 var bakerySpeedUnlocked = false;
 var bakerySpeedDisplay = 70000;
 var bakerySpeed = 5000;
+var bakerySpeedComplete = false;
 var bakerySpeedCount = 0;
 var bakerySpeedFirst = 100000;
 var bakerySpeedCost = bakerySpeedFirst + Math.floor(bakerySpeedFirst * (2 * bakerySpeedCount))
@@ -136,9 +137,9 @@ function cookieUpdate(number, upgradeCalc) {
 		document.getElementById("bakerySpeed").innerHTML = "<button id=\"bakerySpeedButton\" class=\"upgradeButton\" onclick=\"bakerySpeedAdd()\">Overclock your bakery! (<span id=\"bakerySpeedCost\">" + numConvert(bakerySpeedCost, false) + "</span> Cookies)</button>";
 		bakerySpeedUnlocked = true;
 	}
-	if (cookies >= bakerySpeedCost && bakerySpeedUnlocked == true && bakeryBought == true) {
+	if (cookies >= bakerySpeedCost && bakerySpeedUnlocked == true && bakeryBought == true && bakerySpeedComplete == false) {
 		bakerySpeedButton.removeAttribute("disabled");
-	} else if (bakerySpeedUnlocked == true && bakeryBought == true) {
+	} else if (bakerySpeedUnlocked == true && bakeryBought == true && bakerySpeedComplete == false) {
 		bakerySpeedButton.setAttribute("disabled", "disabled");
 	}
 	
@@ -228,6 +229,7 @@ function bakerySpeedAdd() {
 	document.getElementById("bakerySpeedCost").innerHTML = numConvert(bakerySpeedCost, false);
 	cookieUpdate(-(bakerySpeedTemp), false);
 	if (bakerySpeedCount >= 6) {
+		bakerySpeedComplete = true;
 		bakerySpeedButton.remove();
 	}
 }
@@ -286,16 +288,16 @@ function textUpdater() {
 }
 
 //data handling
-var variableList = ["cookies", "upgrade", "multi", "bestCookies", "timeElapsed", "timerID", "oneCount", "oneCost", "ovenCount", "ovenCost", "bakeryBought", "bakeryMulti", "bakerySpeed", "bakerySpeedCount", "bakerySpeedCost"];
+var variableList = ["cookies", "upgrade", "multi", "bestCookies", "timeElapsed", "timerID", "oneCount", "oneCost", "ovenCount", "ovenCost", "bakeryBought", "bakeryMulti", "bakerySpeed", "bakerySpeedComplete", "bakerySpeedCount", "bakerySpeedCost"];
 
-//save function (wip)
+//save function
 function saveProgress() {
 	for (var i = 0; i < variableList.length; i++) {
 		localStorage.setItem(variableList[i], JSON.stringify(window[variableList[i]]));
 	}
 }
 
-//load function (wip)
+//load function
 function loadProgress() {
 	for (var i = 0; i < variableList.length; i++) {
 		window[variableList[i]] = JSON.parse(localStorage.getItem(variableList[i]));
