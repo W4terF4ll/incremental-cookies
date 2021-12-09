@@ -1,4 +1,4 @@
-# incremental_project
+# incremental cookies
 first try at making an incremental game
 
 -- PLANS --
