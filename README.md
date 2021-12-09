@@ -1,19 +1,22 @@
 # incremental cookies
 first try at making an incremental game
+this game is not planned to be playable on mobile
 
 -- PLANS --
 
 - bakery multi decay + anti multi decay upgrade
-- bakery balancing with raisable soft cap
-- settings icon with credits, save/load, changelog
+- settings icon with credits, save/load/reset, changelog
 - next module (rhythm game style with arrow keys)
-- better mobile display
-- way to stop the timer (maybe when hitting undefined cookies)
+- prestige mechanic
 
 -- CHANGELOG --
 
+12/9/21:
+- url is moving for better google results
+
 12/8/21:
 - game is on google now! woot
+- different color when hovering correct bakery tile
 
 12/6/21: 
 - created the changelog 
