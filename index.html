@@ -8,6 +8,16 @@
 		<link rel="shortcut icon" type="image/png" href="cookiefav.png"/>
 	</head>
 	<body>
+		<div class="settingsDiv">
+				<button class="settings" onclick="showMenu()"><img src="settingsIcon.png" height=32px width=32px></button>
+				<div id="settingsMenu" class="settingsMenu">
+					<button onclick="saveProgress()">Save Game</button>
+					<br>
+					<button onclick="loadProgress()">Load Game</button>
+					<br>
+					<button onclick="resetProgress()">Reset Progress</button>
+				</div>
+		</div>
 		<div class="main">
 			<p id="timer">Time Elapsed: <span class="time" id="time">0s</span></p>
 			<p>You have <span class="cookies" id="cookies">0</span> cookies!</p>
