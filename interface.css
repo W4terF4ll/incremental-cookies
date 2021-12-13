@@ -10,6 +10,33 @@
 	font-family: "Lucida Console", "Courier New", monospace;
 }
 
+/* settings */
+.settingDiv {
+	position: relative;
+	display: inline-block;
+}
+.settings {
+	position: absolute;
+	padding: 10px 10px;
+	text-align: center;
+	top: 10px;
+    right: 10px;
+	border-radius: 10px;
+}
+.settingsMenu {
+	display: none;
+	position: absolute;
+	z-index: 1;
+	min-width: 100px;
+	top: 70px;
+    right: 10px;
+}
+.settingsMenu button {
+	display: block;
+	float: right;
+	margin-bottom: 5px;
+}
+
 /* time color */
 .time {
 	color: red;
