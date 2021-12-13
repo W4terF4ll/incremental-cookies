@@ -5,7 +5,7 @@ this game is not planned to be playable on mobile
 -- PLANS --
 
 - bakery multi decay + anti multi decay upgrade
-- settings icon with credits, save/load/reset, changelog
+- changelog display in game
 - next module (rhythm game style with arrow keys)
 - prestige mechanic
 
@@ -13,6 +13,7 @@ this game is not planned to be playable on mobile
 
 12/13/21:
 - new url indexed on google
+- settings icon with save/load/reset buttons
 
 12/9/21:
 - url is moving for better google results
