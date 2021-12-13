@@ -45,6 +45,16 @@ var bakerySpeedCount = 0;
 var bakerySpeedFirst = 100000;
 var bakerySpeedCost = bakerySpeedFirst + Math.floor(bakerySpeedFirst * (2 * bakerySpeedCount))
 
+//settings menu
+function showMenu() {
+	var settingsDisplay = document.getElementById("settingsMenu");
+	if (settingsDisplay.style.display == "none") {
+		settingsDisplay.style.display = "block";
+	} else {
+		settingsDisplay.style.display = "none";
+	}
+}
+
 //time functions
 function tick() {
 	timeElapsed += 1
