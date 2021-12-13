@@ -11,6 +11,9 @@ this game is not planned to be playable on mobile
 
 -- CHANGELOG --
 
+12/13/21:
+- new url indexed on google
+
 12/9/21:
 - url is moving for better google results
 
