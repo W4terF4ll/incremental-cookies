@@ -20,7 +20,7 @@
 	padding: 10px 10px;
 	text-align: center;
 	top: 10px;
-    right: 10px;
+    	right: 10px;
 	border-radius: 10px;
 }
 .settingsMenu {
@@ -29,12 +29,17 @@
 	z-index: 1;
 	min-width: 100px;
 	top: 70px;
-    right: 10px;
+    	right: 10px;
 }
 .settingsMenu button {
 	display: block;
 	float: right;
 	margin-bottom: 5px;
+}
+a.changelog {
+	-webkit-appearance: button;
+    	-moz-appearance: button;
+   	 appearance: button;
 }
 
 /* time color */
