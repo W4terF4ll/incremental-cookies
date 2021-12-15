@@ -16,6 +16,8 @@ made by W4terF4ll#8706
 
 ##### 12/15/21:
 - changelog put in the settings (hello everyone!)
+- added more numbers
+- fixed bug when loading progress after buying bakery
 
 ##### 12/13/21:
 - new url indexed on google
