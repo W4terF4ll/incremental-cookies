@@ -6,7 +6,6 @@ made by W4terF4ll#7310
 -- PLANS --
 
 - bakery multi decay + anti multi decay upgrade
-- changelog display in game
 - next module (rhythm game style with arrow keys)
 - prestige mechanic
 
