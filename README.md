@@ -1,15 +1,18 @@
 # incremental cookies
+
 first try at making a game
+
 this game is not planned to be playable on mobile
+
 made by W4terF4ll#7310
 
--- PLANS --
+## -- PLANS --
 
 - bakery multi decay + anti multi decay upgrade
 - next module (rhythm game style with arrow keys)
 - prestige mechanic
 
--- CHANGELOG --
+ ## -- CHANGELOG --
 
 12/15/21:
 - changelog put in the settings (hello everyone!)
