@@ -11,6 +11,9 @@ made by W4terF4ll#7310
 
 -- CHANGELOG --
 
+12/15/21:
+- changelog put in the settings (hello everyone!)
+
 12/13/21:
 - new url indexed on google
 - settings icon with save/load/reset buttons
