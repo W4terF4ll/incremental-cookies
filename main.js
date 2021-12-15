@@ -183,6 +183,8 @@ function ovenAdd() {
 function bakeryAdd() {
 	if (localStorage.getItem("bakeryBought") == false) {
 		cookieUpdate(-(bakeryCost), false);
+	} else {
+		cookieUpdate(0, false);
 	}
 	bakeryBought = true;
 	document.getElementById("bakeryText").innerHTML = "<p class=\"bakeryText\">-- BAKERY --</p>"
