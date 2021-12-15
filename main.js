@@ -255,7 +255,7 @@ function numConvert(num, extra) {
 	}
 	var power10 = (Math.round(Math.log(num) / Math.LN10 * 1000000) / 1000000);
 	var power10ceiling = Math.floor(power10) + 1;
-	var suffixes = ["", "k", "m", "b", "t", "qt", "qi", "sx", "sp", "oc", "no", "waytoomany"];
+	var suffixes = ["", "k", "m", "b", "t", "qt", "qi", "sx", "sp", "oc", "no", "dc", "udc", "ddc", "tdc", "qtdc", "qidc", "sxdc", "spdc", "nodc", "verybignumbers"];
 	var suffixNum = Math.floor(power10 / 3);
 	var suffix = suffixes[suffixNum];
 	var suffixPower10 = Math.pow(10, suffixNum * 3);
