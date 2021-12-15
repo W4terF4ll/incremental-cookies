@@ -36,14 +36,6 @@
 	float: right;
 	margin-bottom: 5px;
 }
-.changelog {
-	display: block;
-	float: right;
-	margin-bottom: 5px;
-	-webkit-appearance: button;
-    	-moz-appearance: button;
-   	 appearance: button;
-}
 
 /* time color */
 .time {
