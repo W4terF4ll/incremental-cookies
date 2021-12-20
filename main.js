@@ -264,7 +264,12 @@ function mixerAdd() {
 //mixer buttons (heavier wip)
 function mixerDetect(evt) {
 	alert("first " + evt);
-	var key = document.getElemenyById(evt);
+	var key;
+	if (window.event) {
+		key = evt.keyCode;
+	} else if (e.which) {
+		key = evt.which;
+	}
 	alert("second " + key);
 	if (key == 65) {
 		alert("A key");
