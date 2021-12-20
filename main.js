@@ -261,7 +261,7 @@ function mixerAdd() {
 }
 //mixer buttons (heavier wip)
 function mixerDetect(evt) {
-	evt = (e) ? evt : (window.event) ? event : null;
+	evt = (evt) ? evt : (window.event) ? event : null;
   	if (evt) {
 		var charCode = (evt.charCode) ? evt.charCode :((evt.keyCode) ? evt.keyCode :((evt.which) ? evt.which : 0));
 		if (charCode == 37) {
