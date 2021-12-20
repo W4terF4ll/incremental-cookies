@@ -85,7 +85,6 @@
 	transform: translateX(-10%) translateY(-50%);
 	font-family: "Lucida Console", "Courier New", monospace;
 }
-/* bakery buttons */
 .bakeryStyle {
 	padding: 32px 32px;
 	margin-bottom: 10px;
@@ -98,24 +97,49 @@
 .bakeryLit:hover {
 	background-color: #7ea8a5;
 }
-/* bakery header */
 .bakeryText {
 	font-size: 32px;
 	margin-bottom: 0px;
 }
-/* bakery explanation */
 .bakeryInfo {
-	height: 5px
+	height: 5px;
 }
-/* bakery current multi */
 .bakeryMultiText {
 	margin-top: 10px;
 	margin-bottom: 20px;
 	font-size: 12px;
 }
-/* multi color in last line */
 .bakeryMultiTextStyle {
 	color: green;
+	font-size: 14px;
+}
+
+/* mixer feature (wip) */
+.mixer {
+	position: absolute;
+	text-align: center;
+	width: 33%;
+	top: 50%;
+	left: 90%;
+	-moz-transform: translateX(-90%) translateY(-50%);
+	-webkit-transform: translateX(-90%) translateY(-50%);
+	transform: translateX(-90%) translateY(-50%);
+	font-family: "Lucida Console", "Courier New", monospace;
+}
+.mixerText {
+	font-size: 32px;
+	margin-bottom: 0px;
+}
+.mixerInfo {
+	height: 5px;
+}
+.mixerMultiText {
+	margin-top: 10px;
+	margin-bottom: 20px;
+	font-size: 12px;
+}
+.mixerMultiTextStyle {
+	color: blue;
 	font-size: 14px;
 }
 
