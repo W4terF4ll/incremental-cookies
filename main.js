@@ -254,26 +254,26 @@ function bakerySpeedAdd() {
 function mixerAdd() {
 	mixerBought = true;
 	document.getElementById("mixerText").innerHTML = "<p class=\"mixerText\">-- MIXER --</p>"
-	document.getElementById("mixerInfo").innerHTML = "<p class=\"mixerInfo\">Use the arrow keys to empower upgrades!</p>"
+	document.getElementById("mixerInfo").innerHTML = "<p class=\"mixerInfo\">Press keys to empower upgrades!</p>"
 	document.getElementById("mixerMultiDisplay").innerHTML = "<p class=\"mixerMultiText\">Current Upgrade Bonus: <span class=\"mixerMultiTextStyle\" id=\"mixerMultiText\">1.00</span><span class=\"mixerMultiTextStyle\"> extra cookies</span></p>"
-	document.getElementById("mixerTop").innerHTML = "<button id=\"mixerArrow\" class=\"mixerStyle\" onkeypress=\"mixerDetect(this)\">←</button>";
-	document.getElementById("mixerLeft").innerHTML = "<button id=\"mixerArrow\" class=\"mixerStyle\" onkeypress=\"mixerDetect(this)\">↑</button>";
-	document.getElementById("mixerRight").innerHTML = "<button id=\"mixerArrow\" class=\"mixerStyle\" onkeypress=\"mixerDetect(this)\">→</button>";
-	document.getElementById("mixerBottom").innerHTML = "<button id=\"mixerArrow\" class=\"mixerStyle\" onkeypress=\"mixerDetect(this)\">↓</button>";
+	document.getElementById("mixerTop").innerHTML = "<button id=\"mixerArrow\" class=\"mixerStyle\" onkeypress=\"mixerDetect(this)\">A</button>";
+	document.getElementById("mixerLeft").innerHTML = "<button id=\"mixerArrow\" class=\"mixerStyle\" onkeypress=\"mixerDetect(this)\">S</button>";
+	document.getElementById("mixerRight").innerHTML = "<button id=\"mixerArrow\" class=\"mixerStyle\" onkeypress=\"mixerDetect(this)\">K</button>";
+	document.getElementById("mixerBottom").innerHTML = "<button id=\"mixerArrow\" class=\"mixerStyle\" onkeypress=\"mixerDetect(this)\">L</button>";
 }
 //mixer buttons (heavier wip)
 function mixerDetect(evt) {
 	alert("first " + evt);
 	var key = document.getElemenyById(evt);
 	alert("second " + key);
-	if (key == 37) {
-		alert("left arrow pressed");
-	} else if (key == 38) {
-		alert("up arrow pressed");
-	} else if (key == 39) {
-		alert("right arrow pressed");
-	} else if (key == 40) {
-		alert("down arrow pressed");
+	if (key == 65) {
+		alert("A key");
+	} else if (key == ) 83{
+		alert("S key");
+	} else if (key == 75) {
+		alert("K key");
+	} else if (key == 76) {
+		alert("L key");
 	} else {
 		alert("error")
 	}
