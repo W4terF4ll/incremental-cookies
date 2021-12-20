@@ -265,14 +265,14 @@ function mixerAdd() {
 function mixerDetect(evt) {
 	alert("first " + evt);
 	var theKey = (window.event) ? evt.which : evt.keyCode;
-	alert("second " + theKey);
+	alert("second " + event.theKey);
 	if (theKey == 65) {
 		alert("A key");
 	} else if (theKey == 83) {
 		alert("S key");
 	} else if (theKey == 75) {
 		alert("K key");
-	} else if (the == 76) {
+	} else if (theKey == 76) {
 		alert("L key");
 	} else {
 		alert("error")
