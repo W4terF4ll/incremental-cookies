@@ -262,9 +262,10 @@ function mixerAdd() {
 	document.getElementById("mixerRight").innerHTML = "<button id=\"mixerArrow\" class=\"mixerStyle\">→</button>";
 	document.getElementById("mixerBottom").innerHTML = "<button id=\"mixerArrow\" class=\"mixerStyle\">↓</button>";
 	mixerButton = document.getElementById("mixerArrow");
+	mixerButton.onkeypress = mixerDetect(evt);
 }
 //mixer buttons (heavier wip)
-mixerButton.onkeypress = function mixerDetect(evt) {
+function mixerDetect(evt) {
 	alert("first " + evt);
 	evt = (evt) ? evt : (window.event) ? event : null;
 	alert("second " + evt);
