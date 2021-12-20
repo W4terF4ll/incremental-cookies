@@ -254,10 +254,26 @@ function mixerAdd() {
 	document.getElementById("mixerText").innerHTML = "<p class=\"mixerText\">-- MIXER --</p>"
 	document.getElementById("mixerInfo").innerHTML = "<p class=\"mixerInfo\">Use the arrow keys to empower upgrades!</p>"
 	document.getElementById("mixerMultiDisplay").innerHTML = "<p class=\"mixerMultiText\">Current Upgrade Bonus: <span class=\"mixerMultiTextStyle\" id=\"mixerMultiText\">1.00</span><span class=\"mixerMultiTextStyle\"> extra cookies</span></p>"
-	document.getElementById("mixerTop").innerHTML = "<button id=\"mixerArrow1\" class=\"mixerStyle\" onclick=\"mixerDetect(1)\">←</button>";
-	document.getElementById("mixerLeft").innerHTML = "<button id=\"mixerArrow2\" class=\"mixerStyle\" onclick=\"mixerDetect(2)\">↑</button>";
-	document.getElementById("mixerRight").innerHTML = "<button id=\"mixerArrow3\" class=\"mixerStyle\" onclick=\"mixerDetect(3)\">↓</button>";
-	document.getElementById("mixerBottom").innerHTML = "<button id=\"mixerArrow4\" class=\"mixerStyle\" onclick=\"mixerDetect(4)\">→</button>";
+	document.getElementById("mixerTop").innerHTML = "<button id=\"mixerArrow1\" class=\"mixerStyle\" onkeypress=\"mixerDetect(event)\">←</button>";
+	document.getElementById("mixerLeft").innerHTML = "<button id=\"mixerArrow2\" class=\"mixerStyle\" onkeypress=\"mixerDetect(event)\">↑</button>";
+	document.getElementById("mixerRight").innerHTML = "<button id=\"mixerArrow3\" class=\"mixerStyle\" onkeypress=\"mixerDetect(event)\">→</button>";
+	document.getElementById("mixerBottom").innerHTML = "<button id=\"mixerArrow4\" class=\"mixerStyle\" onkeypress=\"mixerDetect(event)\">↓</button>";
+}
+//mixer buttons (heavier wip)
+function mixerDetect(evt) {
+	evt = (e) ? evt : (window.event) ? event : null;
+  	if (evt) {
+		var charCode = (evt.charCode) ? evt.charCode :((evt.keyCode) ? evt.keyCode :((evt.which) ? evt.which : 0));
+		if (charCode == 37) {
+			alert("left arrow pressed");
+		} else if (charCode == 38) {
+			alert("up arrow pressed");
+		} else if (charCode == 39) {
+			alert("right arrow pressed");
+		} else if (charCode == 40) {
+			alert("down arrow pressed");
+		}
+	}
 }
 
 //number converter
