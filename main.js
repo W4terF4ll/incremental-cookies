@@ -268,7 +268,7 @@ function mixerDetect(evt) {
 	alert("second " + key);
 	if (key == 65) {
 		alert("A key");
-	} else if (key == ) 83{
+	} else if (key == 83) {
 		alert("S key");
 	} else if (key == 75) {
 		alert("K key");
