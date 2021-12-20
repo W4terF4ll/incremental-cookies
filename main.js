@@ -45,6 +45,9 @@ var bakerySpeedCount = 0;
 var bakerySpeedFirst = 100000;
 var bakerySpeedCost = bakerySpeedFirst + Math.floor(bakerySpeedFirst * (2 * bakerySpeedCount))
 
+//mixer values (wip)
+var mixerButton;
+
 //settings menu
 function showMenu() {
 	var settingsDisplay = document.getElementById("settingsMenu");
@@ -258,9 +261,9 @@ function mixerAdd() {
 	document.getElementById("mixerLeft").innerHTML = "<button id=\"mixerArrow\" class=\"mixerStyle\">↑</button>";
 	document.getElementById("mixerRight").innerHTML = "<button id=\"mixerArrow\" class=\"mixerStyle\">→</button>";
 	document.getElementById("mixerBottom").innerHTML = "<button id=\"mixerArrow\" class=\"mixerStyle\">↓</button>";
+	mixerButton = document.getElementById("mixerArrow");
 }
 //mixer buttons (heavier wip)
-var mixerButton = document.getElementById("mixerArrow");
 mixerButton.onkeypress = function mixerDetect(evt) {
 	alert("first " + evt);
 	evt = (evt) ? evt : (window.event) ? event : null;
