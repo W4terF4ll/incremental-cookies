@@ -126,6 +126,10 @@
 	transform: translateX(-90%) translateY(-50%);
 	font-family: "Lucida Console", "Courier New", monospace;
 }
+.mixerStyle {
+	padding: 16px 16px;
+	font-size: 32px;
+}
 .mixerText {
 	font-size: 32px;
 	margin-bottom: 0px;
