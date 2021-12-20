@@ -256,23 +256,23 @@ function mixerAdd() {
 	document.getElementById("mixerText").innerHTML = "<p class=\"mixerText\">-- MIXER --</p>"
 	document.getElementById("mixerInfo").innerHTML = "<p class=\"mixerInfo\">Press keys to empower upgrades!</p>"
 	document.getElementById("mixerMultiDisplay").innerHTML = "<p class=\"mixerMultiText\">Current Upgrade Bonus: <span class=\"mixerMultiTextStyle\" id=\"mixerMultiText\">1.00</span><span class=\"mixerMultiTextStyle\"> extra cookies</span></p>"
-	document.getElementById("mixerTop").innerHTML = "<button id=\"mixerArrow\" class=\"mixerStyle\" onkeypress=\"mixerDetect(this)\">A</button>";
-	document.getElementById("mixerLeft").innerHTML = "<button id=\"mixerArrow\" class=\"mixerStyle\" onkeypress=\"mixerDetect(this)\">S</button>";
-	document.getElementById("mixerRight").innerHTML = "<button id=\"mixerArrow\" class=\"mixerStyle\" onkeypress=\"mixerDetect(this)\">K</button>";
-	document.getElementById("mixerBottom").innerHTML = "<button id=\"mixerArrow\" class=\"mixerStyle\" onkeypress=\"mixerDetect(this)\">L</button>";
+	document.getElementById("mixerTop").innerHTML = "<button id=\"mixerArrow\" class=\"mixerStyle\" onkeypress=\"mixerDetect(evt)\">A</button>";
+	document.getElementById("mixerLeft").innerHTML = "<button id=\"mixerArrow\" class=\"mixerStyle\" onkeypress=\"mixerDetect(evt)\">S</button>";
+	document.getElementById("mixerRight").innerHTML = "<button id=\"mixerArrow\" class=\"mixerStyle\" onkeypress=\"mixerDetect(evt)\">K</button>";
+	document.getElementById("mixerBottom").innerHTML = "<button id=\"mixerArrow\" class=\"mixerStyle\" onkeypress=\"mixerDetect(evt)\">L</button>";
 }
 //mixer buttons (heavier wip)
-function mixerDetect(evt) {
-	alert("first " + evt);
-	evt = evt || window.event;
-	alert("second " + evt);
-	if (evt.keyCode == 65) {
+function mixerDetect(event) {
+	alert("first " + event);
+	var theCode = ('charCode' in event) ? event.charCode : event.keyCode;
+	alert("second " + theCode);
+	if (theCode == 65) {
 		alert("A key");
-	} else if (evt.keyCode == 83) {
+	} else if (theCode == 83) {
 		alert("S key");
-	} else if (evt.keyCode == 75) {
+	} else if (theCode == 75) {
 		alert("K key");
-	} else if (evt.keyCode == 76) {
+	} else if (theCode == 76) {
 		alert("L key");
 	} else {
 		alert("error")
