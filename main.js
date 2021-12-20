@@ -46,7 +46,6 @@ var bakerySpeedFirst = 100000;
 var bakerySpeedCost = bakerySpeedFirst + Math.floor(bakerySpeedFirst * (2 * bakerySpeedCount))
 
 //mixer values (wip)
-var mixerButton;
 
 //settings menu
 function showMenu() {
@@ -257,25 +256,23 @@ function mixerAdd() {
 	document.getElementById("mixerText").innerHTML = "<p class=\"mixerText\">-- MIXER --</p>"
 	document.getElementById("mixerInfo").innerHTML = "<p class=\"mixerInfo\">Use the arrow keys to empower upgrades!</p>"
 	document.getElementById("mixerMultiDisplay").innerHTML = "<p class=\"mixerMultiText\">Current Upgrade Bonus: <span class=\"mixerMultiTextStyle\" id=\"mixerMultiText\">1.00</span><span class=\"mixerMultiTextStyle\"> extra cookies</span></p>"
-	document.getElementById("mixerTop").innerHTML = "<button id=\"mixerArrow\" class=\"mixerStyle\">←</button>";
-	document.getElementById("mixerLeft").innerHTML = "<button id=\"mixerArrow\" class=\"mixerStyle\">↑</button>";
-	document.getElementById("mixerRight").innerHTML = "<button id=\"mixerArrow\" class=\"mixerStyle\">→</button>";
-	document.getElementById("mixerBottom").innerHTML = "<button id=\"mixerArrow\" class=\"mixerStyle\">↓</button>";
-	mixerButton = document.getElementById("mixerArrow");
-	mixerButton.onkeypress = mixerDetect(evt);
+	document.getElementById("mixerTop").innerHTML = "<button id=\"mixerArrow\" class=\"mixerStyle\" onkeypress=\"mixerDetect(this);\">←</button>";
+	document.getElementById("mixerLeft").innerHTML = "<button id=\"mixerArrow\" class=\"mixerStyle\" onkeypress=\"mixerDetect(this);\">↑</button>";
+	document.getElementById("mixerRight").innerHTML = "<button id=\"mixerArrow\" class=\"mixerStyle\" onkeypress=\"mixerDetect(this);\">→</button>";
+	document.getElementById("mixerBottom").innerHTML = "<button id=\"mixerArrow\" class=\"mixerStyle\" onkeypress=\"mixerDetect(this);\">↓</button>";
 }
 //mixer buttons (heavier wip)
 function mixerDetect(evt) {
 	alert("first " + evt);
-	evt = (evt) ? evt : (window.event) ? event : null;
-	alert("second " + evt);
-	if (evt == 37) {
+	var key = document.getElemenyById(evt);
+	alert("second " + key);
+	if (key == 37) {
 		alert("left arrow pressed");
-	} else if (evt == 38) {
+	} else if (key == 38) {
 		alert("up arrow pressed");
-	} else if (evt == 39) {
+	} else if (key == 39) {
 		alert("right arrow pressed");
-	} else if (evt == 40) {
+	} else if (key == 40) {
 		alert("down arrow pressed");
 	} else {
 		alert("error")
