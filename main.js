@@ -262,9 +262,9 @@ function mixerAdd() {
 	document.getElementById("mixerBottom").innerHTML = "<button id=\"mixerArrow\" class=\"mixerStyle\" onkeypress=\"mixerDetect(evt)\">L</button>";
 }
 //mixer buttons (heavier wip)
-function mixerDetect(event) {
-	alert("first " + event);
-	var theCode = ('charCode' in event) ? event.charCode : event.keyCode;
+function mixerDetect(e) {
+	alert("first " + e);
+	var theCode = e.keyCode || e.which;
 	alert("second " + theCode);
 	if (theCode == 65) {
 		alert("A key");
