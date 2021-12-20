@@ -264,20 +264,15 @@ function mixerAdd() {
 //mixer buttons (heavier wip)
 function mixerDetect(evt) {
 	alert("first " + evt);
-	var key;
-	if (window.event) {
-		key = evt.keyCode;
-	} else if (e.which) {
-		key = evt.which;
-	}
-	alert("second " + key);
-	if (key == 65) {
+	var keyCode = (window.event) ? evt.which : evt.keyCode;
+	alert("second " + theKey);
+	if (theKey == 65) {
 		alert("A key");
-	} else if (key == 83) {
+	} else if (theKey == 83) {
 		alert("S key");
-	} else if (key == 75) {
+	} else if (theKey == 75) {
 		alert("K key");
-	} else if (key == 76) {
+	} else if (the == 76) {
 		alert("L key");
 	} else {
 		alert("error")
