@@ -254,13 +254,14 @@ function mixerAdd() {
 	document.getElementById("mixerText").innerHTML = "<p class=\"mixerText\">-- MIXER --</p>"
 	document.getElementById("mixerInfo").innerHTML = "<p class=\"mixerInfo\">Use the arrow keys to empower upgrades!</p>"
 	document.getElementById("mixerMultiDisplay").innerHTML = "<p class=\"mixerMultiText\">Current Upgrade Bonus: <span class=\"mixerMultiTextStyle\" id=\"mixerMultiText\">1.00</span><span class=\"mixerMultiTextStyle\"> extra cookies</span></p>"
-	document.getElementById("mixerTop").innerHTML = "<button id=\"mixerArrow1\" class=\"mixerStyle\" onkeypress=\"mixerDetect(event)\">←</button>";
-	document.getElementById("mixerLeft").innerHTML = "<button id=\"mixerArrow2\" class=\"mixerStyle\" onkeypress=\"mixerDetect(event)\">↑</button>";
-	document.getElementById("mixerRight").innerHTML = "<button id=\"mixerArrow3\" class=\"mixerStyle\" onkeypress=\"mixerDetect(event)\">→</button>";
-	document.getElementById("mixerBottom").innerHTML = "<button id=\"mixerArrow4\" class=\"mixerStyle\" onkeypress=\"mixerDetect(event)\">↓</button>";
+	document.getElementById("mixerTop").innerHTML = "<button id=\"mixerArrow\" class=\"mixerStyle\">←</button>";
+	document.getElementById("mixerLeft").innerHTML = "<button id=\"mixerArrow\" class=\"mixerStyle\">↑</button>";
+	document.getElementById("mixerRight").innerHTML = "<button id=\"mixerArrow\" class=\"mixerStyle\">→</button>";
+	document.getElementById("mixerBottom").innerHTML = "<button id=\"mixerArrow\" class=\"mixerStyle\">↓</button>";
 }
 //mixer buttons (heavier wip)
-function mixerDetect(evt) {
+var mixerButton = document.getElementById("mixerArrow");
+mixerButton.onkeypress = function mixerDetect(evt) {
 	alert("first " + evt);
 	evt = (evt) ? evt : (window.event) ? event : null;
 	alert("second " + evt);
