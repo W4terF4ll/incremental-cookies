@@ -1,5 +1,6 @@
 /* DISCLAIMER: this game is in super duper early beta alpha gamma
 bugs are expected and the code is messy */
+/* i suck at coding so heres a link 4 later https://stackoverflow.com/questions/16089421/simplest-way-to-detect-keypresses-in-javascript */
 
 //core values
 var cookies = 0;
