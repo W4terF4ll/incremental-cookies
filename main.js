@@ -1,6 +1,5 @@
 /* DISCLAIMER: this game is in super duper early beta alpha gamma
 bugs are expected and the code is messy */
-/* i suck at coding so heres a link 4 later https://stackoverflow.com/questions/16089421/simplest-way-to-detect-keypresses-in-javascript */
 
 //core values
 var cookies = 0;
@@ -47,6 +46,10 @@ var bakerySpeedFirst = 100000;
 var bakerySpeedCost = bakerySpeedFirst + Math.floor(bakerySpeedFirst * (2 * bakerySpeedCount))
 
 //mixer values (wip)
+var mixerUnlocked = false;
+var mixerBought = false;
+var mixerDisplay = 5e8;
+var mixerCost = 1e9;
 
 //settings menu
 function showMenu() {
@@ -156,6 +159,16 @@ function cookieUpdate(number, upgradeCalc) {
 		bakerySpeedButton.setAttribute("disabled", "disabled");
 	}
 	
+	if (bestCookies >= mixerDisplay && mixerUnlocked == false) {
+		document.getElementById("mixer").innerHTML = "<button id=\"mixerButton\" class=\"upgradeButton\" onclick=\"mixerAdd()\">Buy a dough mixer! (<span id=\"bakeryCost\">" + numConvert(mixerCost, false) + "</span> Cookies)</button>";
+		mixerUnlocked = true;
+	}
+	if (cookies >= mixerCost && mixerUnlocked == true && mixerBought == false) {
+		mixerButton.removeAttribute("disabled");
+	} else if (mixerUnlocked == true && mixerBought == false) {
+		mixerButton.setAttribute("disabled", "disabled");
+	}
+	
 	//update text
 	textUpdater();
 }
@@ -255,29 +268,29 @@ function bakerySpeedAdd() {
 function mixerAdd() {
 	mixerBought = true;
 	document.getElementById("mixerText").innerHTML = "<p class=\"mixerText\">-- MIXER --</p>"
-	document.getElementById("mixerInfo").innerHTML = "<p class=\"mixerInfo\">Press keys to empower upgrades!</p>"
+	document.getElementById("mixerInfo").innerHTML = "<p class=\"mixerInfo\">Press blue keys to empower upgrades!</p>"
 	document.getElementById("mixerMultiDisplay").innerHTML = "<p class=\"mixerMultiText\">Current Upgrade Bonus: <span class=\"mixerMultiTextStyle\" id=\"mixerMultiText\">1.00</span><span class=\"mixerMultiTextStyle\"> extra cookies</span></p>"
-	document.getElementById("mixerTop").innerHTML = "<button id=\"mixerArrow\" class=\"mixerStyle\" onkeypress=\"mixerDetect(e)\">A</button>";
-	document.getElementById("mixerLeft").innerHTML = "<button id=\"mixerArrow\" class=\"mixerStyle\" onkeypress=\"mixerDetect(e)\">S</button>";
-	document.getElementById("mixerRight").innerHTML = "<button id=\"mixerArrow\" class=\"mixerStyle\" onkeypress=\"mixerDetect(e)\">K</button>";
-	document.getElementById("mixerBottom").innerHTML = "<button id=\"mixerArrow\" class=\"mixerStyle\" onkeypress=\"mixerDetect(e)\">L</button>";
-}
-//mixer buttons (heavier wip)
-function mixerDetect(e) {
-	alert("first " + e);
-	var theCode = e.keyCode || e.which;
-	alert("second " + theCode);
-	if (theCode == 65) {
-		alert("A key");
-	} else if (theCode == 83) {
-		alert("S key");
-	} else if (theCode == 75) {
-		alert("K key");
-	} else if (theCode == 76) {
-		alert("L key");
+	document.getElementById("mixerTop").innerHTML = "<button id=\"mixerArrow\" class=\"mixerStyle\">A</button>";
+	document.getElementById("mixerLeft").innerHTML = "<button id=\"mixerArrow\" class=\"mixerStyle\">S</button>";
+	document.getElementById("mixerRight").innerHTML = "<button id=\"mixerArrow\" class=\"mixerStyle\">K</button>";
+	document.getElementById("mixerBottom").innerHTML = "<button id=\"mixerArrow\" class=\"mixerStyle\">L</button>";
+	if (localStorage.getItem("mixerBought") == false) {
+		cookieUpdate(-(mixerCost), false);
 	} else {
-		alert("error")
+		cookieUpdate(0, false);
 	}
+	mixerButton.remove();
+	document.addEventListener("keypress", function onEvent(event) {
+		if (event.key === "a") {
+			alert("A key");
+		} else if (event.key === "s") {
+			alert("S key");
+		} else if (event.key === "k") {
+			alert("K key");
+		} else if (event.key === "l") {
+			alert("L key");
+		}
+	});
 }
 
 //number converter
@@ -323,6 +336,9 @@ function textUpdater() {
 			document.getElementById("nextUpgrade").innerHTML = numConvert(bakerySpeedDisplay, false);
 			document.getElementById("nextUpgradeExtra").innerHTML = "and bakery purchased";
 			break;
+		case (bestCookies < mixerDisplay):
+			document.getElementById("nextUpgrade").innerHTML = numConvert(mixerDisplay, false);
+			break;
 		default:
 			document.getElementById("nextText").innerHTML = "Game Complete! (for now...)";
 	}
@@ -334,7 +350,7 @@ function textUpdater() {
 }
 
 //data handling
-var variableList = ["cookies", "upgrade", "multi", "bestCookies", "timeElapsed", "timerID", "oneCount", "oneCost", "ovenCount", "ovenCost", "bakeryBought", "bakeryMulti", "bakerySpeed", "bakerySpeedComplete", "bakerySpeedCount", "bakerySpeedCost"];
+var variableList = ["cookies", "upgrade", "multi", "bestCookies", "timeElapsed", "timerID", "oneCount", "oneCost", "ovenCount", "ovenCost", "bakeryBought", "bakeryMulti", "bakerySpeed", "bakerySpeedComplete", "bakerySpeedCount", "bakerySpeedCost", "mixerBought"];
 
 //save function
 function saveProgress() {
@@ -354,6 +370,9 @@ function loadProgress() {
 	if (bakerySpeedCount >= 6 && bakerySpeedComplete == false) {
 		bakerySpeedComplete = true;
 		bakerySpeedButton.remove();
+	}
+	if (mixerBought == true) {
+		mixerAdd();
 	}
 	textUpdater();
 }
