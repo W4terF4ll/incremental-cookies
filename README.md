@@ -8,11 +8,15 @@ made by W4terF4ll#8706
 
 ## -- PLANS --
 
-- bakery multi decay + anti multi decay upgrade
-- next module (rhythm game style with arrow keys)
+- bakery multi decay + anti multi decay upgrade (might get pushed back into prestige update)
+- mixer upgrades (ease of use, exponential multi)
 - prestige mechanic
 
  ## -- CHANGELOG --
+ 
+##### 1/5/22:
+- mixer update is finally here! its unbalanced, likely buggy, and renders mobile play of the game currenty impossible
+- to use the mixer, buy it, then press the indicated blue key! (green is the next key)
 
 ##### 12/15/21:
 - changelog put in the settings (hello everyone!)
