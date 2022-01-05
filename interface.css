@@ -145,6 +145,14 @@
 	color: blue;
 	font-size: 14px;
 }
+.mixerLitFull {
+	background-color: #abfeff;
+	font-size: 32px;
+}
+.mixerLitHalf {
+	background-color: #abffd1;
+	font-size: 32px;
+}
 
 /* general button formatting */
 button {
