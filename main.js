@@ -50,6 +50,11 @@ var mixerUnlocked = false;
 var mixerBought = false;
 var mixerDisplay = 5e8;
 var mixerCost = 1e9;
+var randomLightFull = Math.round(1 + (Math.random() * 3));
+var randomLightHalf = Math.round(1 + (Math.random() * 3));
+var mixerLit = false
+var mixerBonus = 1;
+var mixerPass = false;
 
 //settings menu
 function showMenu() {
@@ -120,7 +125,7 @@ function cookieUpdate(number, upgradeCalc) {
 	
 	//detecting if the new cookie amount unlocks anything or allows anything to be purchased
 	if (bestCookies >= oneDisplay && oneUnlocked == false) {
-		document.getElementById("one").innerHTML = "<button id=\"oneButton\" class=\"upgradeButton\" onclick=\"oneAdd()\">Bake an extra cookie! (<span id=\"oneCost\">" + numConvert(oneCost, false) + "</span> Cookies)</button>";
+		document.getElementById("one").innerHTML = "<button id=\"oneButton\" class=\"upgradeButton\" onclick=\"oneAdd()\">Bake <span id=\"mixerOneText\">an</span> extra cookie<span id=\"mixerOneExtraText\"></span>! (<span id=\"oneCost\">" + numConvert(oneCost, false) + "</span> Cookies)</button>";
 		oneUnlocked = true;
 	}
 	if (cookies >= oneCost && oneUnlocked == true) {
@@ -175,7 +180,7 @@ function cookieUpdate(number, upgradeCalc) {
 
 //extra cookie upgrade
 function oneAdd() {
-	upgrade += 1;
+	upgrade += (1 + mixerBonus);
 	var oneTemp = oneCost;
 	oneCount += 1;
 	oneCost = oneFirst + Math.floor(oneCount * Math.pow(1.1,oneCount));
@@ -264,16 +269,17 @@ function bakerySpeedAdd() {
 	}
 }
 
-//mixer feature unlock (heavy wip)
+//mixer feature unlock (wip)
 function mixerAdd() {
 	mixerBought = true;
 	document.getElementById("mixerText").innerHTML = "<p class=\"mixerText\">-- MIXER --</p>"
 	document.getElementById("mixerInfo").innerHTML = "<p class=\"mixerInfo\">Press blue keys to empower upgrades!</p>"
 	document.getElementById("mixerMultiDisplay").innerHTML = "<p class=\"mixerMultiText\">Current Upgrade Bonus: <span class=\"mixerMultiTextStyle\" id=\"mixerMultiText\">1.00</span><span class=\"mixerMultiTextStyle\"> extra cookies</span></p>"
-	document.getElementById("mixerTop").innerHTML = "<button id=\"mixerArrow\" class=\"mixerStyle\">A</button>";
-	document.getElementById("mixerLeft").innerHTML = "<button id=\"mixerArrow\" class=\"mixerStyle\">S</button>";
-	document.getElementById("mixerRight").innerHTML = "<button id=\"mixerArrow\" class=\"mixerStyle\">K</button>";
-	document.getElementById("mixerBottom").innerHTML = "<button id=\"mixerArrow\" class=\"mixerStyle\">L</button>";
+	document.getElementById("mixerTop").innerHTML = "<button id=\"mixerKey1\" class=\"mixerStyle\">A</button>";
+	document.getElementById("mixerLeft").innerHTML = "<button id=\"mixerKey2\" class=\"mixerStyle\">S</button>";
+	document.getElementById("mixerRight").innerHTML = "<button id=\"mixerKey3\" class=\"mixerStyle\">K</button>";
+	document.getElementById("mixerBottom").innerHTML = "<button id=\"mixerKey4\" class=\"mixerStyle\">L</button>";
+	mixerPass = true
 	if (localStorage.getItem("mixerBought") == false) {
 		cookieUpdate(-(mixerCost), false);
 	} else {
@@ -282,15 +288,38 @@ function mixerAdd() {
 	mixerButton.remove();
 	document.addEventListener("keypress", function onEvent(event) {
 		if (event.key === "a") {
-			alert("A key");
+			mixerUnlight(1);
 		} else if (event.key === "s") {
-			alert("S key");
+			mixerUnlight(2);
 		} else if (event.key === "k") {
-			alert("K key");
+			mixerUnlight(3);
 		} else if (event.key === "l") {
-			alert("L key");
+			mixerUnlight(4);
 		}
 	});
+	mixerLight();
+	
+}
+
+//mixer button lighter / unlighter (wip)
+function mixerLight() {
+	randomLightFull = randomLightHalf
+	randomLightHalf = Math.round(1 + (Math.random() * 3));
+	document.getElementById("mixerKey" + randomLightHalf).setAttribute("class", "mixerLitHalf");
+	document.getElementById("mixerKey" + randomLightFull).setAttribute("class", "mixerLitFull");
+	mixerLit = true;
+}
+
+function mixerUnlight(num) {
+	if (mixerLit == true && num == randomLightFull) {
+		document.getElementById("mixerKey" + randomLightFull).setAttribute("class", "mixerStyle");
+		mixerBonus += 1;
+		mixerLit = false;
+		mixerLight();
+	} else {
+		mixerBonus = 1;
+	}
+	textUpdater();
 }
 
 //number converter
@@ -319,6 +348,16 @@ function textUpdater() {
 	document.getElementById("cookies").innerHTML = numConvert(cookies, false);
 	if (bakeryBought == true) {
 		document.getElementById("bakeryMultiText").innerHTML = numConvert(bakeryMulti, true);
+	}
+	if (mixerBought == true && mixerPass == true) {
+		document.getElementById("mixerMultiText").innerHTML = numConvert(mixerBonus, true);
+		if (mixerBonus > 1) {
+			document.getElementById("mixerOneText").innerHTML = numConvert(mixerBonus, false);
+			document.getElementById("mixerOneExtraText").innerHTML = "s";
+		} else {
+			document.getElementById("mixerOneText").innerHTML = "an";
+			document.getElementById("mixerOneExtraText").innerHTML = "";
+		}
 	}
 	document.getElementById("bakeCount").innerHTML = numConvert((upgrade + 1) * (multi) * (bakeryMulti), false);
 	switch (true) {
@@ -350,7 +389,7 @@ function textUpdater() {
 }
 
 //data handling
-var variableList = ["cookies", "upgrade", "multi", "bestCookies", "timeElapsed", "timerID", "oneCount", "oneCost", "ovenCount", "ovenCost", "bakeryBought", "bakeryMulti", "bakerySpeed", "bakerySpeedComplete", "bakerySpeedCount", "bakerySpeedCost", "mixerBought"];
+var variableList = ["cookies", "upgrade", "multi", "bestCookies", "timeElapsed", "timerID", "oneCount", "oneCost", "ovenCount", "ovenCost", "bakeryBought", "bakeryMulti", "bakerySpeed", "bakerySpeedComplete", "bakerySpeedCount", "bakerySpeedCost", "mixerBought", "mixerBonus"];
 
 //save function
 function saveProgress() {
