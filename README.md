@@ -17,6 +17,7 @@ made by W4terF4ll#8706
 ##### 1/5/22:
 - mixer update is finally here! its unbalanced, likely buggy, and renders mobile play of the game currenty impossible
 - to use the mixer, buy it, then press the indicated blue key! (green is the next key)
+- you might have to reset your progress if the mixer is not working
 
 ##### 12/15/21:
 - changelog put in the settings (hello everyone!)
