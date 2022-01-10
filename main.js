@@ -187,7 +187,8 @@ function cookieUpdate(number, upgradeCalc) {
 		document.getElementById("removeBR4").innerHTML = "<br>";
 		document.getElementById("mixerDiff").innerHTML = "<button id=\"mixerDiffButton\" class=\"upgradeButton\" onclick=\"mixerDiffAdd()\">Reduce mixer load! (<span id=\"mixerDiffCost\">" + numConvert(mixerDiffCost, false) + "</span> Cookies)</button>";
 		mixerDiffUnlocked = true;
-	} else if (cookies >= mixerDiffCost && mixerDiffUnlocked == true && mixerBought == true && mixerDiffComplete == false) {
+	}
+	if (cookies >= mixerDiffCost && mixerDiffUnlocked == true && mixerBought == true && mixerDiffComplete == false) {
 		mixerDiffButton.removeAttribute("disabled");
 	} else if (mixerDiffUnlocked == true && mixerBought == true && mixerDiffComplete == false) {
 		mixerDiffButton.setAttribute("disabled", "disabled")
