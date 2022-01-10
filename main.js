@@ -266,6 +266,7 @@ function bakerySpeedAdd() {
 	if (bakerySpeedCount >= 6) {
 		bakerySpeedComplete = true;
 		bakerySpeedButton.remove();
+		removeBR2.remove();
 	}
 }
 
@@ -279,7 +280,7 @@ function mixerAdd() {
 	document.getElementById("mixerLeft").innerHTML = "<button id=\"mixerKey2\" class=\"mixerStyle\">S</button>";
 	document.getElementById("mixerRight").innerHTML = "<button id=\"mixerKey3\" class=\"mixerStyle\">K</button>";
 	document.getElementById("mixerBottom").innerHTML = "<button id=\"mixerKey4\" class=\"mixerStyle\">L</button>";
-	document.getElementById("mixerBreak").innerHTML = "<br>";
+	removeBR3.remove();
 	mixerPass = true
 	if (localStorage.getItem("mixerBought") == false) {
 		cookieUpdate(-(mixerCost), false);
