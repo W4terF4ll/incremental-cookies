@@ -62,6 +62,7 @@ var mixerDiffDisplay = 2e12;
 var mixerDiffFirst = 1e13;
 var mixerDiffCost = Math.pow(mixerDiffFirst, Math.pow(1000, mixerDiffCount))
 var mixerDiffCount = 0;
+var mixerDiffComplete = false;
 
 //settings menu
 function showMenu() {
@@ -182,6 +183,16 @@ function cookieUpdate(number, upgradeCalc) {
 		mixerButton.setAttribute("disabled", "disabled");
 	}
 	
+	if (bestCookies >= mixerDiffDisplay && mixerBought == true && mixerDiffUnlocked == false && mixerDiffComplete == false) {
+		document.getElementById("removeBR4").innerHTML = "<br>";
+		document.getElementById("mixerDiff").innerHTML = "<button id=\"mixerDiffButton\" class=\"upgradeButton\" onclick=\"mixerDiffAdd()\">Reduce mixer load! (<span id=\"mixerDiffCost\">" + numConvert(mixerDiffcost, false) + "</span> Cookies)</button>";
+		mixerDiffUnlocked = true;
+	} else if (cookies >= mixerDiffCost && mixerDiffUnlocked == true && mixerBought == true && mixerDiffComplete == false) {
+		mixerDiffButton.removeAttribute("disabled");
+	} else if (mixerDiffUnlocked == true && mixerDiffBought == true && mixerDiffComplete == false) {
+		mixerDiffButton.setAttribute("disabled", "disabled")
+	}
+	
 	//update text
 	textUpdater();
 }
@@ -278,7 +289,7 @@ function bakerySpeedAdd() {
 	}
 }
 
-//mixer feature unlock (wip)
+//mixer feature unlock
 function mixerAdd() {
 	mixerBought = true;
 	document.getElementById("mixerText").innerHTML = "<p class=\"mixerText\">-- MIXER --</p>"
@@ -311,7 +322,7 @@ function mixerAdd() {
 	
 }
 
-//mixer button lighter / unlighter (wip)
+//mixer button lighter / unlighter
 function mixerLight() {
 	randomLightFull = randomLightHalf
 	randomLightHalf = Math.round(1 + (Math.random() * 3));
@@ -330,6 +341,10 @@ function mixerUnlight(num) {
 		mixerBonus = 1;
 	}
 	textUpdater();
+}
+
+//mixer difficulty upgrade (heavy wip)
+function mixerDiffAdd() {
 }
 
 //number converter
@@ -387,6 +402,11 @@ function textUpdater() {
 			break;
 		case (bestCookies < mixerDisplay):
 			document.getElementById("nextUpgrade").innerHTML = numConvert(mixerDisplay, false);
+			break;
+		case (bestCookies < mixerDiffDisplay):
+		case (mixerBought == false):
+			document.getElementById("nextUpgrade").innerHTML = numConvert(mixerDiffDisplay, false);
+			document.getElementById("nextUpgradeExtra").innerHTML = "and mixer purchased";
 			break;
 		default:
 			document.getElementById("nextText").innerHTML = "Game Complete! (for now...)";
