@@ -189,7 +189,7 @@ function cookieUpdate(number, upgradeCalc) {
 		mixerDiffUnlocked = true;
 	} else if (cookies >= mixerDiffCost && mixerDiffUnlocked == true && mixerBought == true && mixerDiffComplete == false) {
 		mixerDiffButton.removeAttribute("disabled");
-	} else if (mixerDiffUnlocked == true && mixerDiffBought == true && mixerDiffComplete == false) {
+	} else if (mixerDiffUnlocked == true && mixerBought == true && mixerDiffComplete == false) {
 		mixerDiffButton.setAttribute("disabled", "disabled")
 	}
 	
