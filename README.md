@@ -14,6 +14,10 @@ made by W4terF4ll#8706
 
  ## -- CHANGELOG --
  
+##### 1/10/22:
+- mixer bugfixes
+- mixer difficulty upgrade in development!
+ 
 ##### 1/5/22:
 - mixer update is finally here! its unbalanced, likely buggy, and renders mobile play of the game currenty impossible
 - to use the mixer, buy it, then press the indicated blue key! (green is the next key)
