@@ -60,9 +60,9 @@ var mixerPass = false;
 var mixerDiffUnlocked = false;
 var mixerDiffDisplay = 2e12;
 var mixerDiffFirst = 1e13;
-var mixerDiffCost = Math.pow(mixerDiffFirst, Math.pow(1000, mixerDiffCount))
 var mixerDiffCount = 0;
 var mixerDiffComplete = false;
+var mixerDiffCost = Math.pow(mixerDiffFirst, Math.pow(1000, mixerDiffCount))
 
 //settings menu
 function showMenu() {
