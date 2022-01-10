@@ -185,7 +185,7 @@ function cookieUpdate(number, upgradeCalc) {
 	
 	if (bestCookies >= mixerDiffDisplay && mixerBought == true && mixerDiffUnlocked == false && mixerDiffComplete == false) {
 		document.getElementById("removeBR4").innerHTML = "<br>";
-		document.getElementById("mixerDiff").innerHTML = "<button id=\"mixerDiffButton\" class=\"upgradeButton\" onclick=\"mixerDiffAdd()\">Reduce mixer load! (<span id=\"mixerDiffCost\">" + numConvert(mixerDiffcost, false) + "</span> Cookies)</button>";
+		document.getElementById("mixerDiff").innerHTML = "<button id=\"mixerDiffButton\" class=\"upgradeButton\" onclick=\"mixerDiffAdd()\">Reduce mixer load! (<span id=\"mixerDiffCost\">" + numConvert(mixerDiffCost, false) + "</span> Cookies)</button>";
 		mixerDiffUnlocked = true;
 	} else if (cookies >= mixerDiffCost && mixerDiffUnlocked == true && mixerBought == true && mixerDiffComplete == false) {
 		mixerDiffButton.removeAttribute("disabled");
