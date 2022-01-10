@@ -155,6 +155,7 @@ function cookieUpdate(number, upgradeCalc) {
 	}
 	
 	if (bestCookies >= bakerySpeedDisplay && bakeryBought == true && bakerySpeedUnlocked == false && bakerySpeedComplete == false) {
+		document.getElementById("removeBR2").innerHTML = "<br>";
 		document.getElementById("bakerySpeed").innerHTML = "<button id=\"bakerySpeedButton\" class=\"upgradeButton\" onclick=\"bakerySpeedAdd()\">Overclock your bakery! (<span id=\"bakerySpeedCost\">" + numConvert(bakerySpeedCost, false) + "</span> Cookies)</button>";
 		bakerySpeedUnlocked = true;
 	}
