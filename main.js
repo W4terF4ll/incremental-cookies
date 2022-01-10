@@ -45,7 +45,7 @@ var bakerySpeedCount = 0;
 var bakerySpeedFirst = 100000;
 var bakerySpeedCost = bakerySpeedFirst + Math.floor(bakerySpeedFirst * (2 * bakerySpeedCount))
 
-//mixer values (wip)
+//mixer values
 var mixerUnlocked = false;
 var mixerBought = false;
 var mixerDisplay = 5e8;
@@ -55,6 +55,13 @@ var randomLightHalf = Math.round(1 + (Math.random() * 3));
 var mixerLit = false
 var mixerBonus = 1;
 var mixerPass = false;
+
+//mixer difficulty upgrade values (heavy wip)
+var mixerDiffUnlocked = false;
+var mixerDiffDisplay = 2e12;
+var mixerDiffFirst = 1e13;
+var mixerDiffCost = Math.pow(mixerDiffFirst, Math.pow(1000, mixerDiffCount))
+var mixerDiffCount = 0;
 
 //settings menu
 function showMenu() {
