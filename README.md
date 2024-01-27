@@ -4,7 +4,7 @@ first try at making a game
 
 this game is not planned to be playable on mobile
 
-made by W4terF4ll#8706
+made by W4terF4ll
 
 ## -- PLANS --
 
